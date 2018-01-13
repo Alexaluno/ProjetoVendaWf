@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Threading;
 using System.Windows.Forms;
 using Util.Entidades.Clientes;
@@ -48,13 +49,18 @@ namespace ProjetoVendaWF
 
         private void frmClientes_Load(object sender, EventArgs e)
         {
-            var clienteRepositorio = new ClienteRepositorio();
-            var retornoClienteRepositorio = clienteRepositorio.Clientes;
+             clienteRepositorio = new ClienteRepositorio();
+             retornoClienteRepositorio = clienteRepositorio.Clientes;
         }
+
+        private ClienteRepositorio clienteRepositorio;
+        public static List<Cliente> retornoClienteRepositorio;
 
         private void btnCancelar_Click(object sender, EventArgs e)
         {
             this.Close();
         }
+
+        //implementação da consulta de cliente - foi criado uma variavel do tipo estatica no forme de cadastro de cliente e essa variavel vai servir para armazenar as informações de cliente
     }
 }

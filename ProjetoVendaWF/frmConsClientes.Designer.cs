@@ -53,6 +53,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "frmConsClientes";
             this.Text = "Consulta de Clientes";
+            this.Load += new System.EventHandler(this.frmConsClientes_Load);
             this.ResumeLayout(false);
 
         }

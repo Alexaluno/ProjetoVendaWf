@@ -14,19 +14,28 @@ namespace ProjetoVendaWF
 {
     public partial class frmConsClientes : Form
     {
+        private List<Cliente> listaClientes;
         public frmConsClientes()
         {
             InitializeComponent();
+         
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
             //var retornoClienteRepositorio = ClienteRepositorio.Clientes;
 
-            //foreach (var item in retornoClienteRepositorio)
-            //{
-            //    MessageBox.Show("Nome: " + item.Nome + " | " + "CPF: " + item.Cpf + " | " + "Cidade: " + item.Endereco);
-            //}
+            listaClientes = frmCadClientes.retornoClienteRepositorio;
+
+            foreach (var item in listaClientes)
+            {
+                MessageBox.Show("Nome: " + item.Nome + " | " + "CPF: " + item.Cpf + " | " + "Cidade: " + item.Endereco);
+            }
+        }
+
+        private void frmConsClientes_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

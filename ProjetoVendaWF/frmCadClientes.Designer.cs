@@ -155,11 +155,11 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.TextBox txtEndereco;
         private System.Windows.Forms.TextBox txtCPF;
-        private System.Windows.Forms.TextBox txtNome;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btnCadastrar;
         private System.Windows.Forms.Button btnCancelar;
+        private System.Windows.Forms.TextBox txtNome;
     }
 }

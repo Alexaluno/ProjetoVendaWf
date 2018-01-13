@@ -93,5 +93,28 @@ namespace ProjetoVendaWF
             var vendaRepositorio = new Util.Entidades.Vendas.Repositorio.VendaRepositorio();
             var retornoVendaRepositorio = vendaRepositorio.Vendas;
         }
+
+        private void clientesToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            bool open = false;
+            foreach (Form frm in this.MdiChildren)
+            {
+                if (frm is frmConsClientes)
+                {
+                    frm.BringToFront();
+                    frm.WindowState = FormWindowState.Normal;
+                    open = true;
+                }
+            }
+            if (!open)
+            {
+              
+                Form frmCli = new frmConsClientes();
+                frmCli.MdiParent = this;
+                frmCli.Show();
+                frmCli.Location = new Point(0, 0);
+
+            }
+        }
     }
 }

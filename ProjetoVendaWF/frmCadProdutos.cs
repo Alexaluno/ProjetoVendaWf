@@ -16,5 +16,10 @@ namespace ProjetoVendaWF
         {
             InitializeComponent();
         }
+
+        private void frmCadProdutos_Load(object sender, EventArgs e)
+        {
+           
+        }
     }
 }
