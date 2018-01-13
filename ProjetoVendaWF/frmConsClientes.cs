@@ -25,12 +25,12 @@ namespace ProjetoVendaWF
         {
             //var retornoClienteRepositorio = ClienteRepositorio.Clientes;
 
-            listaClientes = frmCadClientes.retornoClienteRepositorio;
 
-            foreach (var item in listaClientes)
-            {
-                MessageBox.Show("Nome: " + item.Nome + " | " + "CPF: " + item.Cpf + " | " + "Cidade: " + item.Endereco);
-            }
+            listaClientes = frmCadClientes.retornoClienteRepositorio;
+            dgClientes.DataSource = null;
+            dgClientes.DataSource = listaClientes;
+        
+
         }
 
         private void frmConsClientes_Load(object sender, EventArgs e)
