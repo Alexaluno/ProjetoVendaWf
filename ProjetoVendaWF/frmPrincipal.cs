@@ -107,15 +107,40 @@ namespace ProjetoVendaWF
               
                 Form frmCli = new frmConsClientes();
                 frmCli.MdiParent = this;
+                frmCli.StartPosition = FormStartPosition.Manual;
+                int x = (this.Width - frmCli.Width) / 2;
+                int y = (this.Height - frmCli.Height) / 4;
+                frmCli.Location = new Point(x, y);
                 frmCli.Show();
-                frmCli.Location = new Point(0, 0);
-
             }
         }
 
         private void sairToolStripMenuItem_Click(object sender, EventArgs e)
         {
             frmPrincipal.ActiveForm.Close();
+        }
+
+        private void usuariosToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            bool open = false;
+            foreach (Form frm in this.MdiChildren)
+            {
+                if (frm is frmConsUsuarios)
+                {
+                    frm.BringToFront();
+                    frm.WindowState = FormWindowState.Normal;
+                    open = true;
+                }
+            }
+            if (!open)
+            {
+
+                Form frmUsu = new frmConsUsuarios();
+                frmUsu.MdiParent = this;
+                frmUsu.Show();
+                frmUsu.Location = new Point(0, 0);
+
+            }
         }
     }
 }

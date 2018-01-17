@@ -21,28 +21,40 @@ namespace ProjetoVendaWF
             txtUsuario.CharacterCasing = CharacterCasing.Upper;
         }
 
-        private void button2_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
-
         private void btnCadastrar_Click(object sender, EventArgs e)
         {
             var uNome = string.Empty;
             var uGrupo = false;
             var index = 0;
 
-            uNome = txtUsuario.Text;
-            index = cbGrupo.SelectedIndex;
-
-            if (index == 0)
+            if (txtUsuario.Text == "")
             {
-                uGrupo = true;
+                MessageBox.Show("Campo Usuário não pode ser vazio !");
+                txtUsuario.Focus();
+                return;
             }
             else
             {
+                uNome = txtUsuario.Text;
+            }
+
+            index = cbGrupo.SelectedIndex;
+
+            if (index == -1)
+            {
+                MessageBox.Show("Campo Grupo não pode ser vazio !");
+                cbGrupo.DroppedDown = true;
+                return;
+            }
+            else if (index == 0)
+            {
+                uGrupo = true;
+            }
+            else if (index == 1)
+            {
                 uGrupo = false;
             }
+
             var uInfo = new Usuario(uNome, uGrupo);
             retornoUsuarioRepositorio.Add(uInfo);
 
@@ -54,6 +66,7 @@ namespace ProjetoVendaWF
             MessageBox.Show(output);
 
             txtUsuario.Text = string.Empty;
+            cbGrupo.SelectedIndex = -1;
             txtUsuario.Focus();
         }
 
@@ -72,8 +85,8 @@ namespace ProjetoVendaWF
 
         private void frmCadUsuarios_Load(object sender, EventArgs e)
         {
-            var usuarioRepositorio = new UsuarioRepositorio();
-            var retornoUsuarioRepositorio = usuarioRepositorio.Usuarios;
+            usuarioRepositorio = new UsuarioRepositorio();
+            retornoUsuarioRepositorio = usuarioRepositorio.Usuarios;
         }
     }
 }

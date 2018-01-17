@@ -73,7 +73,5 @@ namespace ProjetoVendaWF
             txtEndereco.CharacterCasing = CharacterCasing.Upper;
         }
 
-        //implementação da consulta de cliente - foi criado uma variavel do tipo estatica no form de cadastro de cliente
-        //e essa variavel vai servir para armazenar as informações de cliente
     }
 }
