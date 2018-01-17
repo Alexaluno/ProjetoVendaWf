@@ -15,36 +15,33 @@ namespace ProjetoVendaWF
             InitializeComponent();
         }
 
+        private ClienteRepositorio clienteRepositorio;
+        public static List<Cliente> retornoClienteRepositorio;
+
         private void btnCadastrar_Click(object sender, EventArgs e)
         {
-            
-            var cNome = "";
-            var cCPF = "";
-            var cEndereco = "";
+            var cNome = string.Empty;
+            var cCPF = string.Empty;
+            var cEndereco = string.Empty;
 
-            cNome = txtNome.Text.ToUpper();
-            cCPF = txtCPF.Text.ToUpper();
-            cEndereco = txtEndereco.Text.ToUpper();
+            cNome = txtNome.Text;
+            cCPF = txtCPF.Text;
+            cEndereco = txtEndereco.Text;
 
             var cInfo = new Cliente(cNome, cCPF, cEndereco);
             retornoClienteRepositorio.Add(cInfo);
 
+            //string output = string.Empty;
             //foreach (var item in retornoClienteRepositorio)
             //{
-            //        MessageBox.Show("Nome: " + item.Nome + " | " + "CPF: " + item.Cpf + " | " + "Cidade: " + item.Endereco);   
+            //    output += "Nome: " + item.Nome + " | " + "CPF: " + item.Cpf + " | " + "Cidade: " + item.Endereco + "\n";
             //}
-
-            string output = string.Empty;
-            foreach (var item in retornoClienteRepositorio)
-            {
-                output += "Nome: " + item.Nome + " | " + "CPF: " + item.Cpf + " | " + "Cidade: " + item.Endereco + "\n";
-            }
-            MessageBox.Show(output);
+            //MessageBox.Show(output);
 
             txtNome.Text = String.Empty;
             txtCPF.Text = String.Empty;
             txtEndereco.Text = String.Empty;
-
+            txtNome.Focus();
         }
 
         private void frmClientes_Load(object sender, EventArgs e)
@@ -53,14 +50,30 @@ namespace ProjetoVendaWF
              retornoClienteRepositorio = clienteRepositorio.Clientes;
         }
 
-        private ClienteRepositorio clienteRepositorio;
-        public static List<Cliente> retornoClienteRepositorio;
-
         private void btnCancelar_Click(object sender, EventArgs e)
         {
             this.Close();
         }
 
-        //implementação da consulta de cliente - foi criado uma variavel do tipo estatica no forme de cadastro de cliente e essa variavel vai servir para armazenar as informações de cliente
+        private void frmCadClientes_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                this.SelectNextControl(this.ActiveControl, !e.Shift, true, true, true);
+            }
+        }
+
+        private void txtNome_TextChanged(object sender, EventArgs e)
+        {
+            txtNome.CharacterCasing = CharacterCasing.Upper;
+        }
+
+        private void txtEndereco_TextChanged(object sender, EventArgs e)
+        {
+            txtEndereco.CharacterCasing = CharacterCasing.Upper;
+        }
+
+        //implementação da consulta de cliente - foi criado uma variavel do tipo estatica no form de cadastro de cliente
+        //e essa variavel vai servir para armazenar as informações de cliente
     }
 }

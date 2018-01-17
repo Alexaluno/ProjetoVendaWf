@@ -1,14 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using Util.Entidades.Clientes;
-using Util.Entidades.Clientes.Repositorio;
 
 namespace ProjetoVendaWF
 {
@@ -18,24 +11,69 @@ namespace ProjetoVendaWF
         public frmConsClientes()
         {
             InitializeComponent();
-         
         }
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-            //var retornoClienteRepositorio = ClienteRepositorio.Clientes;
-
-
-            listaClientes = frmCadClientes.retornoClienteRepositorio;
-            dgClientes.DataSource = null;
-            dgClientes.DataSource = listaClientes;
-        
-
-        }
+        private int indexRow;
 
         private void frmConsClientes_Load(object sender, EventArgs e)
         {
+            //dgClientes.Columns[3].Visible = false;
+        }
 
+         //atualizar os dados das celulas selecionadas no datagrid
+        private void btnAtualiza_Click(object sender, EventArgs e)
+        {
+            if (dgClientes.Rows.Count == 0)
+            {
+                MessageBox.Show("Não existem clientes cadastrados");
+                txtNome.Text = String.Empty;
+                txtEndereco.Text = String.Empty;
+            }
+            else
+            {
+                DataGridViewRow newDataRow = dgClientes.Rows[indexRow];
+                newDataRow.Cells[0].Value = txtNome.Text.ToUpper();
+                newDataRow.Cells[2].Value = txtEndereco.Text.ToUpper();
+            }
+        }
+
+        private void dgClientes_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            indexRow = e.RowIndex; // recebe o índice da linha selecionada no datagrid
+            if (dgClientes.Rows.Count == 0)
+            {
+                ResumeLayout();
+            }
+            else
+            {
+                DataGridViewRow row = dgClientes.Rows[indexRow];
+                txtNome.Text = row.Cells[0].Value.ToString();
+                txtEndereco.Text = row.Cells[2].Value.ToString();
+            }
+        }
+
+        private void frmConsClientes_Shown(object sender, EventArgs e)
+        {
+            listaClientes = frmCadClientes.retornoClienteRepositorio;
+            dgClientes.DataSource = null;
+            dgClientes.DataSource = listaClientes;
+        }
+
+        private void btnConsulta_Click(object sender, EventArgs e)
+        {
+            //listaClientes = frmCadClientes.retornoClienteRepositorio;
+            dgClientes.DataSource = null;
+            dgClientes.DataSource = listaClientes;
+        }
+
+        private void txtNome_TextChanged(object sender, EventArgs e)
+        {
+            txtNome.CharacterCasing = CharacterCasing.Upper;
+        }
+
+        private void txtEndereco_TextChanged(object sender, EventArgs e)
+        {
+            txtEndereco.CharacterCasing = CharacterCasing.Upper;
         }
     }
 }

@@ -29,38 +29,39 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmCadClientes));
-            this.panel1 = new System.Windows.Forms.Panel();
+            this.pnlCliente = new System.Windows.Forms.Panel();
             this.txtEndereco = new System.Windows.Forms.TextBox();
             this.txtCPF = new System.Windows.Forms.TextBox();
             this.txtNome = new System.Windows.Forms.TextBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
+            this.lbEndereco = new System.Windows.Forms.Label();
+            this.lbCPF = new System.Windows.Forms.Label();
+            this.lbNome = new System.Windows.Forms.Label();
             this.btnCadastrar = new System.Windows.Forms.Button();
             this.btnCancelar = new System.Windows.Forms.Button();
-            this.panel1.SuspendLayout();
+            this.pnlCliente.SuspendLayout();
             this.SuspendLayout();
             // 
-            // panel1
+            // pnlCliente
             // 
-            this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel1.Controls.Add(this.txtEndereco);
-            this.panel1.Controls.Add(this.txtCPF);
-            this.panel1.Controls.Add(this.txtNome);
-            this.panel1.Controls.Add(this.label3);
-            this.panel1.Controls.Add(this.label2);
-            this.panel1.Controls.Add(this.label1);
-            this.panel1.Location = new System.Drawing.Point(12, 12);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(413, 83);
-            this.panel1.TabIndex = 0;
+            this.pnlCliente.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pnlCliente.Controls.Add(this.txtEndereco);
+            this.pnlCliente.Controls.Add(this.txtCPF);
+            this.pnlCliente.Controls.Add(this.txtNome);
+            this.pnlCliente.Controls.Add(this.lbEndereco);
+            this.pnlCliente.Controls.Add(this.lbCPF);
+            this.pnlCliente.Controls.Add(this.lbNome);
+            this.pnlCliente.Location = new System.Drawing.Point(12, 12);
+            this.pnlCliente.Name = "pnlCliente";
+            this.pnlCliente.Size = new System.Drawing.Size(413, 83);
+            this.pnlCliente.TabIndex = 0;
             // 
             // txtEndereco
             // 
             this.txtEndereco.Location = new System.Drawing.Point(127, 57);
             this.txtEndereco.Name = "txtEndereco";
-            this.txtEndereco.Size = new System.Drawing.Size(245, 20);
+            this.txtEndereco.Size = new System.Drawing.Size(275, 20);
             this.txtEndereco.TabIndex = 5;
+            this.txtEndereco.TextChanged += new System.EventHandler(this.txtEndereco_TextChanged);
             // 
             // txtCPF
             // 
@@ -73,38 +74,39 @@
             // 
             this.txtNome.Location = new System.Drawing.Point(127, 3);
             this.txtNome.Name = "txtNome";
-            this.txtNome.Size = new System.Drawing.Size(245, 20);
+            this.txtNome.Size = new System.Drawing.Size(275, 20);
             this.txtNome.TabIndex = 3;
+            this.txtNome.TextChanged += new System.EventHandler(this.txtNome_TextChanged);
             // 
-            // label3
+            // lbEndereco
             // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(3, 59);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(126, 13);
-            this.label3.TabIndex = 2;
-            this.label3.Text = "Endereço do Cliente:";
+            this.lbEndereco.AutoSize = true;
+            this.lbEndereco.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbEndereco.Location = new System.Drawing.Point(3, 59);
+            this.lbEndereco.Name = "lbEndereco";
+            this.lbEndereco.Size = new System.Drawing.Size(126, 13);
+            this.lbEndereco.TabIndex = 2;
+            this.lbEndereco.Text = "Endereço do Cliente:";
             // 
-            // label2
+            // lbCPF
             // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(3, 32);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(95, 13);
-            this.label2.TabIndex = 1;
-            this.label2.Text = "CPF do Cliente:";
+            this.lbCPF.AutoSize = true;
+            this.lbCPF.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbCPF.Location = new System.Drawing.Point(3, 32);
+            this.lbCPF.Name = "lbCPF";
+            this.lbCPF.Size = new System.Drawing.Size(95, 13);
+            this.lbCPF.TabIndex = 1;
+            this.lbCPF.Text = "CPF do Cliente:";
             // 
-            // label1
+            // lbNome
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(3, 5);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(104, 13);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Nome do Cliente:";
+            this.lbNome.AutoSize = true;
+            this.lbNome.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbNome.Location = new System.Drawing.Point(3, 5);
+            this.lbNome.Name = "lbNome";
+            this.lbNome.Size = new System.Drawing.Size(104, 13);
+            this.lbNome.TabIndex = 0;
+            this.lbNome.Text = "Nome do Cliente:";
             // 
             // btnCadastrar
             // 
@@ -137,27 +139,29 @@
             this.ClientSize = new System.Drawing.Size(439, 133);
             this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.btnCadastrar);
-            this.Controls.Add(this.panel1);
+            this.Controls.Add(this.pnlCliente);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.KeyPreview = true;
             this.Location = new System.Drawing.Point(1, 1);
             this.MaximizeBox = false;
             this.Name = "frmCadClientes";
             this.Text = "Cadastro de Clientes";
             this.Load += new System.EventHandler(this.frmClientes_Load);
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.frmCadClientes_KeyDown);
+            this.pnlCliente.ResumeLayout(false);
+            this.pnlCliente.PerformLayout();
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Panel pnlCliente;
         private System.Windows.Forms.TextBox txtEndereco;
         private System.Windows.Forms.TextBox txtCPF;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label lbEndereco;
+        private System.Windows.Forms.Label lbCPF;
+        private System.Windows.Forms.Label lbNome;
         private System.Windows.Forms.Button btnCadastrar;
         private System.Windows.Forms.Button btnCancelar;
         private System.Windows.Forms.TextBox txtNome;

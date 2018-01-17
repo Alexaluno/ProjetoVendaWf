@@ -2,6 +2,7 @@
 using System.Drawing;
 using System.Windows.Forms;
 
+
 namespace ProjetoVendaWF
 {
     public partial class frmPrincipal : Form
@@ -35,7 +36,7 @@ namespace ProjetoVendaWF
 
         private void sairToolStripMenuItem1_Click(object sender, EventArgs e)
         {
-            frmPrincipal.ActiveForm.Close();
+            
         }
 
         private void produtosToolStripMenuItem_Click(object sender, EventArgs e)
@@ -82,11 +83,6 @@ namespace ProjetoVendaWF
 
         private void frmPrincipal_Load(object sender, EventArgs e)
         {
-            var usuarioRepositorio = new Util.Entidades.Usuarios.Repositorio.UsuarioRepositorio();
-            var retornoUsuarioRepositorio = usuarioRepositorio.Usuarios;
-
-            
-
             var produtoRepositorio = new Util.Entidades.Produtos.Repositorio.ProdutoRepositorio();
             var retornoProdutoRepositorio = produtoRepositorio.Produtos;
 
@@ -115,6 +111,11 @@ namespace ProjetoVendaWF
                 frmCli.Location = new Point(0, 0);
 
             }
+        }
+
+        private void sairToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmPrincipal.ActiveForm.Close();
         }
     }
 }
