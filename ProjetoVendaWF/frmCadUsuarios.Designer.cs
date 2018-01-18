@@ -62,6 +62,7 @@
             this.cbGrupo.Name = "cbGrupo";
             this.cbGrupo.Size = new System.Drawing.Size(175, 21);
             this.cbGrupo.TabIndex = 4;
+            this.cbGrupo.Enter += new System.EventHandler(this.cbGrupo_Enter);
             // 
             // label1
             // 
@@ -120,11 +121,13 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.Control;
             this.ClientSize = new System.Drawing.Size(424, 119);
             this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.btnCadastrar);
             this.Controls.Add(this.panelCadUsu);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.KeyPreview = true;
             this.Name = "frmCadUsuarios";
             this.Text = "Cadastro de Usuários";
             this.Load += new System.EventHandler(this.frmCadUsuarios_Load);

@@ -111,6 +111,7 @@
             this.produtosToolStripMenuItem1.Name = "produtosToolStripMenuItem1";
             this.produtosToolStripMenuItem1.Size = new System.Drawing.Size(152, 22);
             this.produtosToolStripMenuItem1.Text = "&Produtos";
+            this.produtosToolStripMenuItem1.Click += new System.EventHandler(this.produtosToolStripMenuItem1_Click);
             // 
             // usuariosToolStripMenuItem1
             // 
@@ -151,6 +152,8 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(362, 261);
             this.Controls.Add(this.menuStrip1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));

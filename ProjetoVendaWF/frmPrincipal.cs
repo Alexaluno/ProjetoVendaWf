@@ -28,9 +28,11 @@ namespace ProjetoVendaWF
             {
                 Form frmCli = new frmCadClientes();
                 frmCli.MdiParent = this;
+                frmCli.StartPosition = FormStartPosition.Manual;
+                int x = (this.Width - frmCli.Width) / 2;
+                int y = (this.Height - frmCli.Height) / 4;
+                frmCli.Location = new Point(x, y);
                 frmCli.Show();
-                frmCli.Location = new Point(0,0);
-
             }
         }
 
@@ -55,8 +57,11 @@ namespace ProjetoVendaWF
             {
                 Form frmProd = new frmCadProdutos();
                 frmProd.MdiParent = this;
+                frmProd.StartPosition = FormStartPosition.Manual;
+                int x = (this.Width - frmProd.Width) / 2;
+                int y = (this.Height - frmProd.Height) / 4;
+                frmProd.Location = new Point(x, y);
                 frmProd.Show();
-                frmProd.Location = new Point(480,0);
             }
         }
 
@@ -76,8 +81,11 @@ namespace ProjetoVendaWF
             {
                 Form frmUsu = new frmCadUsuarios();
                 frmUsu.MdiParent = this;
+                frmUsu.StartPosition = FormStartPosition.Manual;
+                int x = (this.Width - frmUsu.Width) / 2;
+                int y = (this.Height - frmUsu.Height) / 4;
+                frmUsu.Location = new Point(x, y);
                 frmUsu.Show();
-                frmUsu.Location = new Point(1000,0);
             }
         }
 
@@ -104,7 +112,6 @@ namespace ProjetoVendaWF
             }
             if (!open)
             {
-              
                 Form frmCli = new frmConsClientes();
                 frmCli.MdiParent = this;
                 frmCli.StartPosition = FormStartPosition.Manual;
@@ -117,7 +124,7 @@ namespace ProjetoVendaWF
 
         private void sairToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            frmPrincipal.ActiveForm.Close();
+            this.Close();
         }
 
         private void usuariosToolStripMenuItem1_Click(object sender, EventArgs e)
@@ -134,12 +141,37 @@ namespace ProjetoVendaWF
             }
             if (!open)
             {
-
                 Form frmUsu = new frmConsUsuarios();
                 frmUsu.MdiParent = this;
+                frmUsu.StartPosition = FormStartPosition.Manual;
+                int x = (this.Width - frmUsu.Width) / 2;
+                int y = (this.Height - frmUsu.Height) / 4;
+                frmUsu.Location = new Point(x, y);
                 frmUsu.Show();
-                frmUsu.Location = new Point(0, 0);
+            }
+        }
 
+        private void produtosToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            bool open = false;
+            foreach (Form frm in this.MdiChildren)
+            {
+                if (frm is frmConsProdutos)
+                {
+                    frm.BringToFront();
+                    frm.WindowState = FormWindowState.Normal;
+                    open = true;
+                }
+            }
+            if (!open)
+            {
+                Form frmProd = new frmConsProdutos();
+                frmProd.MdiParent = this;
+                frmProd.StartPosition = FormStartPosition.Manual;
+                int x = (this.Width - frmProd.Width) / 2;
+                int y = (this.Height - frmProd.Height) / 4;
+                frmProd.Location = new Point(x, y);
+                frmProd.Show();
             }
         }
     }

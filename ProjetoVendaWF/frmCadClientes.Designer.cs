@@ -43,7 +43,7 @@
             // 
             // pnlCliente
             // 
-            this.pnlCliente.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pnlCliente.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.pnlCliente.Controls.Add(this.txtEndereco);
             this.pnlCliente.Controls.Add(this.txtCPF);
             this.pnlCliente.Controls.Add(this.txtNome);

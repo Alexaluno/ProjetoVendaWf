@@ -31,3 +31,4 @@ C:\Users\Rodrigo\OneDrive\Programação\ProjetoVendaWF\ProjetoVendaWF\bin\Debug\
 C:\Users\Rodrigo\OneDrive\Programação\ProjetoVendaWF\ProjetoVendaWF\bin\Debug\Util.dll
 C:\Users\Rodrigo\OneDrive\Programação\ProjetoVendaWF\ProjetoVendaWF\bin\Debug\Util.pdb
 C:\Users\DeRodrigo\OneDrive\Programação\ProjetoVendaWF\ProjetoVendaWF\obj\Debug\ProjetoVendaWF.frmConsUsuarios.resources
+C:\Users\DeRodrigo\OneDrive\Programação\ProjetoVendaWF\ProjetoVendaWF\obj\Debug\ProjetoVendaWF.frmConsProdutos.resources

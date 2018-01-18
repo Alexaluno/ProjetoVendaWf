@@ -61,7 +61,6 @@ namespace ProjetoVendaWF
 
         private void btnConsulta_Click(object sender, EventArgs e)
         {
-            //listaClientes = frmCadClientes.retornoClienteRepositorio;
             dgClientes.DataSource = null;
             dgClientes.DataSource = listaClientes;
         }

@@ -58,12 +58,12 @@ namespace ProjetoVendaWF
             var uInfo = new Usuario(uNome, uGrupo);
             retornoUsuarioRepositorio.Add(uInfo);
 
-            string output = string.Empty;
-            foreach (var item in retornoUsuarioRepositorio)
-            {
-                output += "Nome: " + item.Nome + " | " + "Grupo: " + item.Administrador + "\n";
-            }
-            MessageBox.Show(output);
+            //string output = string.Empty;
+            //foreach (var item in retornoUsuarioRepositorio)
+            //{
+            //    output += "Nome: " + item.Nome + " | " + "Grupo: " + item.Administrador + "\n";
+            //}
+            //MessageBox.Show(output);
 
             txtUsuario.Text = string.Empty;
             cbGrupo.SelectedIndex = -1;
@@ -87,6 +87,11 @@ namespace ProjetoVendaWF
         {
             usuarioRepositorio = new UsuarioRepositorio();
             retornoUsuarioRepositorio = usuarioRepositorio.Usuarios;
+        }
+
+        private void cbGrupo_Enter(object sender, EventArgs e)
+        {
+            cbGrupo.DroppedDown = true;
         }
     }
 }
