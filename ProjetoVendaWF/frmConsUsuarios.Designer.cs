@@ -28,15 +28,17 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmConsUsuarios));
             this.pnlConsultas = new System.Windows.Forms.Panel();
             this.dgUsuarios = new System.Windows.Forms.DataGridView();
             this.lblNome = new System.Windows.Forms.Label();
             this.lblGrupo = new System.Windows.Forms.Label();
-            this.btnConsulta = new System.Windows.Forms.Button();
-            this.btnAtualiza = new System.Windows.Forms.Button();
+            this.btnDeletar = new System.Windows.Forms.Button();
+            this.btnGravar = new System.Windows.Forms.Button();
             this.txtNome = new System.Windows.Forms.TextBox();
             this.cbGrupo = new System.Windows.Forms.ComboBox();
+            this.timerUsuarios = new System.Windows.Forms.Timer(this.components);
             this.pnlConsultas.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgUsuarios)).BeginInit();
             this.SuspendLayout();
@@ -63,6 +65,7 @@
             this.dgUsuarios.Location = new System.Drawing.Point(0, 0);
             this.dgUsuarios.Name = "dgUsuarios";
             this.dgUsuarios.ReadOnly = true;
+            this.dgUsuarios.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
             this.dgUsuarios.Size = new System.Drawing.Size(536, 300);
             this.dgUsuarios.TabIndex = 0;
             this.dgUsuarios.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgUsuarios_CellClick);
@@ -87,29 +90,29 @@
             this.lblGrupo.TabIndex = 2;
             this.lblGrupo.Text = "Grupo Usuário:";
             // 
-            // btnConsulta
+            // btnDeletar
             // 
-            this.btnConsulta.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnConsulta.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnConsulta.Location = new System.Drawing.Point(404, 327);
-            this.btnConsulta.Name = "btnConsulta";
-            this.btnConsulta.Size = new System.Drawing.Size(75, 23);
-            this.btnConsulta.TabIndex = 3;
-            this.btnConsulta.Text = "Consultar";
-            this.btnConsulta.UseVisualStyleBackColor = true;
-            this.btnConsulta.Click += new System.EventHandler(this.btnConsulta_Click);
+            this.btnDeletar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnDeletar.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDeletar.Location = new System.Drawing.Point(404, 356);
+            this.btnDeletar.Name = "btnDeletar";
+            this.btnDeletar.Size = new System.Drawing.Size(75, 23);
+            this.btnDeletar.TabIndex = 3;
+            this.btnDeletar.Text = "Deletar";
+            this.btnDeletar.UseVisualStyleBackColor = true;
+            this.btnDeletar.Click += new System.EventHandler(this.btnDeletar_Click);
             // 
-            // btnAtualiza
+            // btnGravar
             // 
-            this.btnAtualiza.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnAtualiza.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAtualiza.Location = new System.Drawing.Point(404, 356);
-            this.btnAtualiza.Name = "btnAtualiza";
-            this.btnAtualiza.Size = new System.Drawing.Size(75, 23);
-            this.btnAtualiza.TabIndex = 4;
-            this.btnAtualiza.Text = "Atualizar";
-            this.btnAtualiza.UseVisualStyleBackColor = true;
-            this.btnAtualiza.Click += new System.EventHandler(this.btnAtualiza_Click);
+            this.btnGravar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnGravar.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnGravar.Location = new System.Drawing.Point(404, 327);
+            this.btnGravar.Name = "btnGravar";
+            this.btnGravar.Size = new System.Drawing.Size(75, 23);
+            this.btnGravar.TabIndex = 4;
+            this.btnGravar.Text = "Gravar";
+            this.btnGravar.UseVisualStyleBackColor = true;
+            this.btnGravar.Click += new System.EventHandler(this.btnGravar_Click);
             // 
             // txtNome
             // 
@@ -130,6 +133,12 @@
             this.cbGrupo.Size = new System.Drawing.Size(150, 21);
             this.cbGrupo.TabIndex = 6;
             // 
+            // timerUsuarios
+            // 
+            this.timerUsuarios.Enabled = true;
+            this.timerUsuarios.Interval = 1000;
+            this.timerUsuarios.Tick += new System.EventHandler(this.timerUsuarios_Tick);
+            // 
             // frmConsUsuarios
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -137,8 +146,8 @@
             this.ClientSize = new System.Drawing.Size(567, 387);
             this.Controls.Add(this.cbGrupo);
             this.Controls.Add(this.txtNome);
-            this.Controls.Add(this.btnAtualiza);
-            this.Controls.Add(this.btnConsulta);
+            this.Controls.Add(this.btnGravar);
+            this.Controls.Add(this.btnDeletar);
             this.Controls.Add(this.lblGrupo);
             this.Controls.Add(this.lblNome);
             this.Controls.Add(this.pnlConsultas);
@@ -159,9 +168,10 @@
         private System.Windows.Forms.DataGridView dgUsuarios;
         private System.Windows.Forms.Label lblNome;
         private System.Windows.Forms.Label lblGrupo;
-        private System.Windows.Forms.Button btnConsulta;
-        private System.Windows.Forms.Button btnAtualiza;
+        private System.Windows.Forms.Button btnDeletar;
+        private System.Windows.Forms.Button btnGravar;
         private System.Windows.Forms.TextBox txtNome;
         private System.Windows.Forms.ComboBox cbGrupo;
+        private System.Windows.Forms.Timer timerUsuarios;
     }
 }

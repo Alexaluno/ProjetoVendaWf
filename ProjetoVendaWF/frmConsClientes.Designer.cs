@@ -47,7 +47,7 @@
             this.pnlConsultas.Controls.Add(this.dgClientes);
             this.pnlConsultas.Location = new System.Drawing.Point(12, 12);
             this.pnlConsultas.Name = "pnlConsultas";
-            this.pnlConsultas.Size = new System.Drawing.Size(542, 306);
+            this.pnlConsultas.Size = new System.Drawing.Size(540, 304);
             this.pnlConsultas.TabIndex = 2;
             // 
             // dgClientes
@@ -66,7 +66,7 @@
             this.dgClientes.MultiSelect = false;
             this.dgClientes.Name = "dgClientes";
             this.dgClientes.ReadOnly = true;
-            this.dgClientes.Size = new System.Drawing.Size(540, 304);
+            this.dgClientes.Size = new System.Drawing.Size(538, 302);
             this.dgClientes.TabIndex = 2;
             this.dgClientes.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgClientes_CellClick);
             // 
@@ -96,19 +96,19 @@
             // 
             // txtEndereco
             // 
+            this.txtEndereco.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtEndereco.Location = new System.Drawing.Point(165, 356);
             this.txtEndereco.Name = "txtEndereco";
             this.txtEndereco.Size = new System.Drawing.Size(230, 20);
             this.txtEndereco.TabIndex = 9;
-            this.txtEndereco.TextChanged += new System.EventHandler(this.txtEndereco_TextChanged);
             // 
             // txtNome
             // 
+            this.txtNome.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtNome.Location = new System.Drawing.Point(165, 330);
             this.txtNome.Name = "txtNome";
             this.txtNome.Size = new System.Drawing.Size(230, 20);
             this.txtNome.TabIndex = 8;
-            this.txtNome.TextChanged += new System.EventHandler(this.txtNome_TextChanged);
             // 
             // lblNome
             // 

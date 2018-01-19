@@ -64,15 +64,5 @@ namespace ProjetoVendaWF
             dgClientes.DataSource = null;
             dgClientes.DataSource = listaClientes;
         }
-
-        private void txtNome_TextChanged(object sender, EventArgs e)
-        {
-            txtNome.CharacterCasing = CharacterCasing.Upper;
-        }
-
-        private void txtEndereco_TextChanged(object sender, EventArgs e)
-        {
-            txtEndereco.CharacterCasing = CharacterCasing.Upper;
-        }
     }
 }

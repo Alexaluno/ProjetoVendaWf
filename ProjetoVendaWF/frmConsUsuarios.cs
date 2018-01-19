@@ -1,11 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using Util.Entidades.Usuarios;
 
@@ -14,6 +9,7 @@ namespace ProjetoVendaWF
     public partial class frmConsUsuarios : Form
     {
         private List<Usuario> listaUsuarios;
+
         public frmConsUsuarios()
         {
             InitializeComponent();
@@ -30,47 +26,48 @@ namespace ProjetoVendaWF
 
         private void dgUsuarios_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            //var index = 0;
-            indexRow = e.RowIndex; // recebe o índice da linha selecionada no datagrid
-            if (dgUsuarios.Rows.Count == 0)
+            // recebe o índice da linha selecionada no datagrid
+            indexRow = e.RowIndex; 
+            if (indexRow < 0)
             {
-                // se estiver vazio o datagrid não faz nada
-                ResumeLayout();
+                // se estiver vazio o datagrid, não faz nada
+                // não faz nada
             }
             else
             {
-                // se tiver info no datagrid, prenche o textbox e o combobox com as informações dos indices definidos da linha selecionada
-                //var retorno = false;
-                DataGridViewRow row = dgUsuarios.Rows[indexRow];
-                txtNome.Text = row.Cells[0].Value.ToString();
+                // se tiver dados no datagrid, prenche o textbox e o combobox com as informações dos indices definidos da linha selecionada
+                try
+                {
+                    DataGridViewRow row = dgUsuarios.Rows[indexRow];
+                    txtNome.Text = row.Cells[0].Value.ToString();
 
-                if ((bool) row.Cells[1].Value == true)
-                {
-                    cbGrupo.SelectedIndex = 0;
+                    if ((bool)row.Cells[1].Value == true)
+                    {
+                        cbGrupo.SelectedIndex = 0;
+                    }
+                    else
+                    {
+                        cbGrupo.SelectedIndex = 1;
+                    }
                 }
-                else
+                catch (IndexOutOfRangeException)
                 {
-                    cbGrupo.SelectedIndex = 1;
+                    // Não faz nada
                 }
+                
             }
         }
 
-        private void btnConsulta_Click(object sender, EventArgs e)
-        {
-            dgUsuarios.DataSource = null;
-            dgUsuarios.DataSource = listaUsuarios;
-        }
-
-        private void btnAtualiza_Click(object sender, EventArgs e)
+        private void btnGravar_Click(object sender, EventArgs e)
         {
             if (dgUsuarios.Rows.Count == 0)
             {
-                MessageBox.Show("Não existem clientes cadastrados");
-                txtNome.Text = String.Empty;
+                MessageBox.Show("Não existem usuários cadastrados");
+                txtNome.Text = string.Empty;
                 cbGrupo.SelectedIndex = -1;
             }
             else
-            {
+            {   // Grava as atualizações feitas direto no list
                 DataGridViewRow newDataRow = dgUsuarios.Rows[indexRow];
                 newDataRow.Cells[0].Value = txtNome.Text.ToUpper();
                 if (cbGrupo.SelectedIndex == 0)
@@ -81,7 +78,21 @@ namespace ProjetoVendaWF
                 {
                     newDataRow.Cells[1].Value = false;
                 }
-                
+            }
+        }
+        // Atualiza o grid em tempo de execução
+        private void timerUsuarios_Tick(object sender, EventArgs e)
+        {
+            dgUsuarios.DataSource = null;
+            dgUsuarios.DataSource = listaUsuarios;
+        }
+
+        private void btnDeletar_Click(object sender, EventArgs e)
+        {
+            if (dgUsuarios.CurrentRow != null)
+            {   //remove o usuario selecionado no grid do list
+                listaUsuarios.RemoveAt(dgUsuarios.CurrentRow.Index);
+                dgUsuarios.DataSource = listaUsuarios.ToList();
             }
         }
     }
