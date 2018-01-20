@@ -74,7 +74,7 @@
             // 
             this.lblNome.AutoSize = true;
             this.lblNome.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblNome.Location = new System.Drawing.Point(59, 333);
+            this.lblNome.Location = new System.Drawing.Point(12, 333);
             this.lblNome.Name = "lblNome";
             this.lblNome.Size = new System.Drawing.Size(108, 13);
             this.lblNome.TabIndex = 1;
@@ -84,7 +84,7 @@
             // 
             this.lblGrupo.AutoSize = true;
             this.lblGrupo.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblGrupo.Location = new System.Drawing.Point(59, 359);
+            this.lblGrupo.Location = new System.Drawing.Point(12, 359);
             this.lblGrupo.Name = "lblGrupo";
             this.lblGrupo.Size = new System.Drawing.Size(92, 13);
             this.lblGrupo.TabIndex = 2;
@@ -94,7 +94,7 @@
             // 
             this.btnDeletar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnDeletar.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDeletar.Location = new System.Drawing.Point(404, 356);
+            this.btnDeletar.Location = new System.Drawing.Point(476, 354);
             this.btnDeletar.Name = "btnDeletar";
             this.btnDeletar.Size = new System.Drawing.Size(75, 23);
             this.btnDeletar.TabIndex = 3;
@@ -106,7 +106,7 @@
             // 
             this.btnGravar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnGravar.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnGravar.Location = new System.Drawing.Point(404, 327);
+            this.btnGravar.Location = new System.Drawing.Point(476, 328);
             this.btnGravar.Name = "btnGravar";
             this.btnGravar.Size = new System.Drawing.Size(75, 23);
             this.btnGravar.TabIndex = 4;
@@ -117,9 +117,9 @@
             // txtNome
             // 
             this.txtNome.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.txtNome.Location = new System.Drawing.Point(165, 330);
+            this.txtNome.Location = new System.Drawing.Point(116, 330);
             this.txtNome.Name = "txtNome";
-            this.txtNome.Size = new System.Drawing.Size(230, 20);
+            this.txtNome.Size = new System.Drawing.Size(356, 20);
             this.txtNome.TabIndex = 5;
             // 
             // cbGrupo
@@ -128,7 +128,7 @@
             this.cbGrupo.Items.AddRange(new object[] {
             "ADMINISTRADOR",
             "USUARIO"});
-            this.cbGrupo.Location = new System.Drawing.Point(165, 356);
+            this.cbGrupo.Location = new System.Drawing.Point(116, 356);
             this.cbGrupo.Name = "cbGrupo";
             this.cbGrupo.Size = new System.Drawing.Size(150, 21);
             this.cbGrupo.TabIndex = 6;

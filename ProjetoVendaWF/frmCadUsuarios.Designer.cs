@@ -48,17 +48,18 @@
             this.panelCadUsu.Controls.Add(this.labelUsu1);
             this.panelCadUsu.Location = new System.Drawing.Point(12, 12);
             this.panelCadUsu.Name = "panelCadUsu";
-            this.panelCadUsu.Size = new System.Drawing.Size(400, 70);
+            this.panelCadUsu.Size = new System.Drawing.Size(415, 80);
             this.panelCadUsu.TabIndex = 0;
             // 
             // cbGrupo
             // 
             this.cbGrupo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbGrupo.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbGrupo.FormattingEnabled = true;
             this.cbGrupo.Items.AddRange(new object[] {
             "ADMINISTRADOR",
             "USUÁRIO"});
-            this.cbGrupo.Location = new System.Drawing.Point(113, 36);
+            this.cbGrupo.Location = new System.Drawing.Point(109, 42);
             this.cbGrupo.Name = "cbGrupo";
             this.cbGrupo.Size = new System.Drawing.Size(175, 21);
             this.cbGrupo.TabIndex = 4;
@@ -68,7 +69,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(3, 39);
+            this.label1.Location = new System.Drawing.Point(3, 45);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(110, 13);
             this.label1.TabIndex = 3;
@@ -76,9 +77,10 @@
             // 
             // txtUsuario
             // 
-            this.txtUsuario.Location = new System.Drawing.Point(113, 7);
+            this.txtUsuario.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtUsuario.Location = new System.Drawing.Point(109, 13);
             this.txtUsuario.Name = "txtUsuario";
-            this.txtUsuario.Size = new System.Drawing.Size(275, 20);
+            this.txtUsuario.Size = new System.Drawing.Size(295, 20);
             this.txtUsuario.TabIndex = 1;
             this.txtUsuario.TextChanged += new System.EventHandler(this.txtUsuario_TextChanged);
             // 
@@ -87,7 +89,7 @@
             this.labelUsu1.AutoSize = true;
             this.labelUsu1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.labelUsu1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelUsu1.Location = new System.Drawing.Point(3, 10);
+            this.labelUsu1.Location = new System.Drawing.Point(3, 16);
             this.labelUsu1.Name = "labelUsu1";
             this.labelUsu1.Size = new System.Drawing.Size(108, 13);
             this.labelUsu1.TabIndex = 0;
@@ -97,7 +99,7 @@
             // 
             this.btnCadastrar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnCadastrar.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCadastrar.Location = new System.Drawing.Point(113, 88);
+            this.btnCadastrar.Location = new System.Drawing.Point(113, 102);
             this.btnCadastrar.Name = "btnCadastrar";
             this.btnCadastrar.Size = new System.Drawing.Size(75, 23);
             this.btnCadastrar.TabIndex = 1;
@@ -109,7 +111,7 @@
             // 
             this.btnCancelar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnCancelar.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCancelar.Location = new System.Drawing.Point(240, 88);
+            this.btnCancelar.Location = new System.Drawing.Point(245, 102);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(75, 23);
             this.btnCancelar.TabIndex = 2;
@@ -122,7 +124,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
-            this.ClientSize = new System.Drawing.Size(424, 119);
+            this.ClientSize = new System.Drawing.Size(439, 133);
             this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.btnCadastrar);
             this.Controls.Add(this.panelCadUsu);

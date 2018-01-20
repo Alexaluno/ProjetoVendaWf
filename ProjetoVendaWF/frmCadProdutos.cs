@@ -14,7 +14,7 @@ namespace ProjetoVendaWF
             InitializeComponent();
 
             AplicarEventosTexto(txtDescProd);
-            AplicarEventosNumeros(txtValprod);
+            AplicarEventosNumero(txtValprod);
         }
 
         private ProdutoRepositorio produtoRepositorio;
@@ -56,12 +56,12 @@ namespace ProjetoVendaWF
             var pinfo = new Produto(pDesc, decimal.Parse(pValor));
             retornoProdutoRepositorio.Add(pinfo);
 
-            string output = string.Empty;
-            foreach (var item in retornoProdutoRepositorio)
-            {
-                output += "Produto: " + item.Descricao + " | " + "Valor: R$" + item.Valor + "\n";
-            }
-            MessageBox.Show(output);
+            //string output = string.Empty;
+            //foreach (var item in retornoProdutoRepositorio)
+            //{
+            //    output += "Produto: " + item.Descricao + " | " + "Valor: R$" + item.Valor + "\n";
+            //}
+            //MessageBox.Show(output);
 
             txtDescProd.Text = string.Empty;
             txtValprod.Text = string.Empty;
@@ -118,7 +118,7 @@ namespace ProjetoVendaWF
             }
         }
         //Aplica todas as funções aos respectivos eventos
-        private void AplicarEventosNumeros(TextBox txt)
+        private void AplicarEventosNumero(TextBox txt)
         {
             //txt.Enter += TirarMascara;
             //txt.Leave += RetornarMascara;

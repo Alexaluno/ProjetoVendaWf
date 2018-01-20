@@ -1,0 +1,7 @@
+Sistema desenvolvido durante o curso de Lógica de Programação e Orientação a Objetos.
+
+Linguagem utilizada: Visual C#
+
+Ferramenta utilizada: Microsoft Visual Studio 2017
+ 
+Professor: Alex...

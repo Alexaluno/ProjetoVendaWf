@@ -20,8 +20,20 @@ namespace ProjetoVendaWF
         private void frmConsUsuarios_Shown(object sender, EventArgs e)
         {
             listaUsuarios = frmCadUsuarios.retornoUsuarioRepositorio;
-            dgUsuarios.DataSource = null;
-            dgUsuarios.DataSource = listaUsuarios;
+            //dgUsuarios.DataSource = null;
+            //dgUsuarios.DataSource = listaUsuarios;
+            //dgUsuarios.Columns[2].Visible = false;
+            if (dgUsuarios.Rows.Count == 0)
+            {
+                //nao faz nada
+                dgUsuarios.DataSource = listaUsuarios;
+            }
+            else
+            {
+                dgUsuarios.DataSource = null;
+                dgUsuarios.DataSource = listaUsuarios;
+                dgUsuarios.Columns[2].Visible = false;
+            }
         }
 
         private void dgUsuarios_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -31,7 +43,6 @@ namespace ProjetoVendaWF
             if (indexRow < 0)
             {
                 // se estiver vazio o datagrid, não faz nada
-                // não faz nada
             }
             else
             {
@@ -83,8 +94,17 @@ namespace ProjetoVendaWF
         // Atualiza o grid em tempo de execução
         private void timerUsuarios_Tick(object sender, EventArgs e)
         {
-            dgUsuarios.DataSource = null;
-            dgUsuarios.DataSource = listaUsuarios;
+            if (dgUsuarios.Rows.Count == 0)
+            {
+                //não faz nada
+                dgUsuarios.DataSource = listaUsuarios;
+            }
+            else
+            {
+                dgUsuarios.DataSource = null;
+                dgUsuarios.DataSource = listaUsuarios;
+                dgUsuarios.Columns[2].Visible = false;
+            }
         }
 
         private void btnDeletar_Click(object sender, EventArgs e)

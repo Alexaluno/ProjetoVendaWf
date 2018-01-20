@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading;
 using System.Windows.Forms;
 using Util.Entidades.Clientes;
@@ -13,6 +14,7 @@ namespace ProjetoVendaWF
         public frmCadClientes()
         {
             InitializeComponent();
+            AplicarEventosNumeros(txtCPF);
         }
 
         private ClienteRepositorio clienteRepositorio;
@@ -71,6 +73,20 @@ namespace ProjetoVendaWF
         private void txtEndereco_TextChanged(object sender, EventArgs e)
         {
             txtEndereco.CharacterCasing = CharacterCasing.Upper;
+        }
+
+        private void ApenasValorNumerico(object sender, KeyPressEventArgs e)
+        {
+            TextBox txt = (TextBox)sender;
+            if (!char.IsDigit(e.KeyChar) && e.KeyChar != Convert.ToChar(Keys.Back))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void AplicarEventosNumeros(TextBox txt)
+        {
+            txt.KeyPress += ApenasValorNumerico;
         }
 
     }

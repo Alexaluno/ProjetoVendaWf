@@ -84,6 +84,12 @@
     <Compile Include="frmCadProdutos.Designer.cs">
       <DependentUpon>frmCadProdutos.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmSobre.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmSobre.Designer.cs">
+      <DependentUpon>frmSobre.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="frmCadUsuarios.cs">
@@ -109,6 +115,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmCadProdutos.resx">
       <DependentUpon>frmCadProdutos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmSobre.resx">
+      <DependentUpon>frmSobre.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -138,6 +147,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Imagens\Slide2.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Imagens\fundo.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

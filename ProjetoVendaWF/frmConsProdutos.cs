@@ -1,14 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using Util.Entidades.Produtos;
-using Util.Entidades.Produtos.Repositorio;
 
 namespace ProjetoVendaWF
 {
@@ -20,6 +14,7 @@ namespace ProjetoVendaWF
         public frmConsProdutos()
         {
             InitializeComponent();
+            AplicarEventosNumeros(txtValprod);
         }
 
         private int indexRow;
@@ -29,6 +24,7 @@ namespace ProjetoVendaWF
             listaProdutos = frmCadProdutos.retornoProdutoRepositorio;
             dgProdutos.DataSource = null;
             dgProdutos.DataSource = listaProdutos;
+            dgProdutos.Columns[2].Visible = false;
         }
 
         private void dgProdutos_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -46,8 +42,8 @@ namespace ProjetoVendaWF
                 try
                 {
                     DataGridViewRow row = dgProdutos.Rows[indexRow];
-                    txtDescricao.Text = row.Cells[0].Value.ToString();
-                    txtValor.Text = row.Cells[1].Value.ToString();
+                    txtDescprod.Text = row.Cells[0].Value.ToString();
+                    txtValprod.Text = row.Cells[1].Value.ToString();
                 }
                 catch (IndexOutOfRangeException)
                 {
@@ -62,14 +58,14 @@ namespace ProjetoVendaWF
             if (dgProdutos.Rows.Count == 0)
             {
                 MessageBox.Show("Não existem usuários cadastrados");
-                txtDescricao.Text = string.Empty;
-                txtValor.Text = string.Empty;
+                txtDescprod.Text = string.Empty;
+                txtValprod.Text = string.Empty;
             }
             else
             {   // Grava as atualizações feitas direto no list
                 DataGridViewRow newDataRow = dgProdutos.Rows[indexRow];
-                newDataRow.Cells[0].Value = txtDescricao.Text;
-                newDataRow.Cells[1].Value = txtValor.Text;
+                newDataRow.Cells[0].Value = txtDescprod.Text;
+                newDataRow.Cells[1].Value = txtValprod.Text;
             }
         }
 
@@ -86,6 +82,29 @@ namespace ProjetoVendaWF
         {
             dgProdutos.DataSource = null;
             dgProdutos.DataSource = listaProdutos;
+            dgProdutos.Columns[2].Visible = false;
         }
+
+        private void ApenasValorNumerico(object sender, KeyPressEventArgs e)
+        {
+            TextBox txt = (TextBox)sender;
+            if (!char.IsDigit(e.KeyChar) && e.KeyChar != Convert.ToChar(Keys.Back))
+            {
+                if (e.KeyChar == ',')
+                {
+                    e.Handled = (txt.Text.Contains(','));
+                }
+                else
+                {
+                    e.Handled = true;
+                }
+            }
+        }
+
+        private void AplicarEventosNumeros(TextBox txt)
+        {
+            txt.KeyPress += ApenasValorNumerico;
+        }
+
     }
 }

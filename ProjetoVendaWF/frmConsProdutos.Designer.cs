@@ -34,8 +34,8 @@
             this.dgProdutos = new System.Windows.Forms.DataGridView();
             this.lblDescricao = new System.Windows.Forms.Label();
             this.lblValor = new System.Windows.Forms.Label();
-            this.txtDescricao = new System.Windows.Forms.TextBox();
-            this.txtValor = new System.Windows.Forms.TextBox();
+            this.txtDescprod = new System.Windows.Forms.TextBox();
+            this.txtValprod = new System.Windows.Forms.TextBox();
             this.btnGravar = new System.Windows.Forms.Button();
             this.btnDeletar = new System.Windows.Forms.Button();
             this.timerProdutos = new System.Windows.Forms.Timer(this.components);
@@ -56,6 +56,8 @@
             // 
             this.dgProdutos.AllowUserToAddRows = false;
             this.dgProdutos.AllowUserToDeleteRows = false;
+            this.dgProdutos.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this.dgProdutos.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dgProdutos.BackgroundColor = System.Drawing.SystemColors.Control;
             this.dgProdutos.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.dgProdutos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -71,7 +73,7 @@
             // 
             this.lblDescricao.AutoSize = true;
             this.lblDescricao.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDescricao.Location = new System.Drawing.Point(59, 333);
+            this.lblDescricao.Location = new System.Drawing.Point(12, 333);
             this.lblDescricao.Name = "lblDescricao";
             this.lblDescricao.Size = new System.Drawing.Size(110, 13);
             this.lblDescricao.TabIndex = 1;
@@ -81,33 +83,34 @@
             // 
             this.lblValor.AutoSize = true;
             this.lblValor.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblValor.Location = new System.Drawing.Point(59, 359);
+            this.lblValor.Location = new System.Drawing.Point(12, 359);
             this.lblValor.Name = "lblValor";
             this.lblValor.Size = new System.Drawing.Size(106, 13);
             this.lblValor.TabIndex = 2;
             this.lblValor.Text = "Valor do Produto:";
             // 
-            // txtDescricao
+            // txtDescprod
             // 
-            this.txtDescricao.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.txtDescricao.Location = new System.Drawing.Point(165, 330);
-            this.txtDescricao.Name = "txtDescricao";
-            this.txtDescricao.Size = new System.Drawing.Size(230, 20);
-            this.txtDescricao.TabIndex = 3;
+            this.txtDescprod.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.txtDescprod.Location = new System.Drawing.Point(118, 330);
+            this.txtDescprod.Name = "txtDescprod";
+            this.txtDescprod.Size = new System.Drawing.Size(354, 20);
+            this.txtDescprod.TabIndex = 3;
             // 
-            // txtValor
+            // txtValprod
             // 
-            this.txtValor.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.txtValor.Location = new System.Drawing.Point(165, 356);
-            this.txtValor.Name = "txtValor";
-            this.txtValor.Size = new System.Drawing.Size(100, 20);
-            this.txtValor.TabIndex = 4;
+            this.txtValprod.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.txtValprod.Location = new System.Drawing.Point(118, 356);
+            this.txtValprod.Name = "txtValprod";
+            this.txtValprod.Size = new System.Drawing.Size(100, 20);
+            this.txtValprod.TabIndex = 4;
+            this.txtValprod.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // btnGravar
             // 
             this.btnGravar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnGravar.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnGravar.Location = new System.Drawing.Point(404, 327);
+            this.btnGravar.Location = new System.Drawing.Point(476, 328);
             this.btnGravar.Name = "btnGravar";
             this.btnGravar.Size = new System.Drawing.Size(75, 23);
             this.btnGravar.TabIndex = 5;
@@ -119,7 +122,7 @@
             // 
             this.btnDeletar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnDeletar.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDeletar.Location = new System.Drawing.Point(404, 356);
+            this.btnDeletar.Location = new System.Drawing.Point(476, 354);
             this.btnDeletar.Name = "btnDeletar";
             this.btnDeletar.Size = new System.Drawing.Size(75, 23);
             this.btnDeletar.TabIndex = 6;
@@ -140,8 +143,8 @@
             this.ClientSize = new System.Drawing.Size(567, 387);
             this.Controls.Add(this.btnDeletar);
             this.Controls.Add(this.btnGravar);
-            this.Controls.Add(this.txtValor);
-            this.Controls.Add(this.txtDescricao);
+            this.Controls.Add(this.txtValprod);
+            this.Controls.Add(this.txtDescprod);
             this.Controls.Add(this.lblValor);
             this.Controls.Add(this.lblDescricao);
             this.Controls.Add(this.pnlProdutos);
@@ -162,8 +165,8 @@
         private System.Windows.Forms.DataGridView dgProdutos;
         private System.Windows.Forms.Label lblDescricao;
         private System.Windows.Forms.Label lblValor;
-        private System.Windows.Forms.TextBox txtDescricao;
-        private System.Windows.Forms.TextBox txtValor;
+        private System.Windows.Forms.TextBox txtDescprod;
+        private System.Windows.Forms.TextBox txtValprod;
         private System.Windows.Forms.Button btnGravar;
         private System.Windows.Forms.Button btnDeletar;
         private System.Windows.Forms.Timer timerProdutos;

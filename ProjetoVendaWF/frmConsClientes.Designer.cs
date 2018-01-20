@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmConsClientes));
             this.pnlConsultas = new System.Windows.Forms.Panel();
             this.dgClientes = new System.Windows.Forms.DataGridView();
@@ -37,6 +38,7 @@
             this.txtNome = new System.Windows.Forms.TextBox();
             this.lblNome = new System.Windows.Forms.Label();
             this.lblEndereco = new System.Windows.Forms.Label();
+            this.timerClientes = new System.Windows.Forms.Timer(this.components);
             this.pnlConsultas.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgClientes)).BeginInit();
             this.SuspendLayout();
@@ -54,8 +56,6 @@
             // 
             this.dgClientes.AllowUserToAddRows = false;
             this.dgClientes.AllowUserToDeleteRows = false;
-            this.dgClientes.AllowUserToResizeColumns = false;
-            this.dgClientes.AllowUserToResizeRows = false;
             this.dgClientes.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.dgClientes.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dgClientes.BackgroundColor = System.Drawing.SystemColors.Control;
@@ -74,7 +74,7 @@
             // 
             this.btnConsulta.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnConsulta.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnConsulta.Location = new System.Drawing.Point(404, 327);
+            this.btnConsulta.Location = new System.Drawing.Point(476, 328);
             this.btnConsulta.Name = "btnConsulta";
             this.btnConsulta.Size = new System.Drawing.Size(75, 23);
             this.btnConsulta.TabIndex = 7;
@@ -86,7 +86,7 @@
             // 
             this.btnAtualiza.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnAtualiza.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAtualiza.Location = new System.Drawing.Point(404, 356);
+            this.btnAtualiza.Location = new System.Drawing.Point(476, 354);
             this.btnAtualiza.Name = "btnAtualiza";
             this.btnAtualiza.Size = new System.Drawing.Size(75, 23);
             this.btnAtualiza.TabIndex = 10;
@@ -97,24 +97,24 @@
             // txtEndereco
             // 
             this.txtEndereco.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.txtEndereco.Location = new System.Drawing.Point(165, 356);
+            this.txtEndereco.Location = new System.Drawing.Point(116, 356);
             this.txtEndereco.Name = "txtEndereco";
-            this.txtEndereco.Size = new System.Drawing.Size(230, 20);
+            this.txtEndereco.Size = new System.Drawing.Size(356, 20);
             this.txtEndereco.TabIndex = 9;
             // 
             // txtNome
             // 
             this.txtNome.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.txtNome.Location = new System.Drawing.Point(165, 330);
+            this.txtNome.Location = new System.Drawing.Point(116, 330);
             this.txtNome.Name = "txtNome";
-            this.txtNome.Size = new System.Drawing.Size(230, 20);
+            this.txtNome.Size = new System.Drawing.Size(356, 20);
             this.txtNome.TabIndex = 8;
             // 
             // lblNome
             // 
             this.lblNome.AutoSize = true;
             this.lblNome.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblNome.Location = new System.Drawing.Point(59, 333);
+            this.lblNome.Location = new System.Drawing.Point(12, 333);
             this.lblNome.Name = "lblNome";
             this.lblNome.Size = new System.Drawing.Size(104, 13);
             this.lblNome.TabIndex = 11;
@@ -124,11 +124,17 @@
             // 
             this.lblEndereco.AutoSize = true;
             this.lblEndereco.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblEndereco.Location = new System.Drawing.Point(59, 359);
+            this.lblEndereco.Location = new System.Drawing.Point(12, 359);
             this.lblEndereco.Name = "lblEndereco";
             this.lblEndereco.Size = new System.Drawing.Size(98, 13);
             this.lblEndereco.TabIndex = 12;
             this.lblEndereco.Text = "End. do Cliente:";
+            // 
+            // timerClientes
+            // 
+            this.timerClientes.Enabled = true;
+            this.timerClientes.Interval = 1000;
+            this.timerClientes.Tick += new System.EventHandler(this.timerClientes_Tick);
             // 
             // frmConsClientes
             // 
@@ -164,5 +170,6 @@
         private System.Windows.Forms.TextBox txtNome;
         private System.Windows.Forms.Label lblNome;
         private System.Windows.Forms.Label lblEndereco;
+        private System.Windows.Forms.Timer timerClientes;
     }
 }
