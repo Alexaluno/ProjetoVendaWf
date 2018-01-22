@@ -17,52 +17,17 @@ namespace ProjetoVendaWF
             AplicarEventosNumero(txtValprod);
         }
 
-        private ProdutoRepositorio produtoRepositorio;
-        public static List<Produto> retornoProdutoRepositorio;
-
-        private void frmCadProdutos_Load(object sender, EventArgs e)
-        {
-            produtoRepositorio = new ProdutoRepositorio();
-            retornoProdutoRepositorio = produtoRepositorio.Produtos;
-        }
-
         private void btnCadProd_Click(object sender, EventArgs e)
         {
-            var pDesc = string.Empty;
-            var pValor = string.Empty;
-
-            if (txtDescProd.Text == "")
-            {
-                MessageBox.Show("Campo não pode ser vazio !");
-                txtDescProd.Focus();
-                return;
-            }
-            else
-            {
-                pDesc = txtDescProd.Text;
-            }
-
-            if (txtValprod.Text == "")
-            {
-                MessageBox.Show("Campo não pode ser vazio !");
-                txtValprod.Focus();
-                return;
-            }
-            else
-            {
-                pValor = txtValprod.Text;
-            }
+            var pDesc = txtDescProd.Text;
+            var pValor = txtValprod.Text;
             
+            //Grava os valores dentro da Classe Produtos
             var pinfo = new Produto(pDesc, decimal.Parse(pValor));
-            retornoProdutoRepositorio.Add(pinfo);
+            ProdutoRepositorio.Adicionar(pinfo);
+            MessageBox.Show(ProdutoRepositorio.mensagem());
 
-            //string output = string.Empty;
-            //foreach (var item in retornoProdutoRepositorio)
-            //{
-            //    output += "Produto: " + item.Descricao + " | " + "Valor: R$" + item.Valor + "\n";
-            //}
-            //MessageBox.Show(output);
-
+            //Limpa os campos e seta o foco no 1º campo do form
             txtDescProd.Text = string.Empty;
             txtValprod.Text = string.Empty;
             txtDescProd.Focus();
@@ -70,29 +35,18 @@ namespace ProjetoVendaWF
 
         private void btnCancelar_Click(object sender, EventArgs e)
         {
-            this.Close();
+            //Fecha o form
+            Close();
         }
 
         private void frmCadProdutos_KeyDown(object sender, KeyEventArgs e)
         {
+            //Habilita o uso do Enter para trocar de campo no form
             if (e.KeyCode == Keys.Enter)
             {
                 this.SelectNextControl(this.ActiveControl, !e.Shift, true, true, true);
             }
         }
-
-        ////Função para colocar a mascara
-        //private void RetornarMascara(object sender, EventArgs e)
-        //{
-        //    TextBox txt = (TextBox)sender;
-        //    txt.Text = decimal.Parse(txt.Text).ToString("C2");
-        //}
-        ////Função para retirar a mascara
-        //private void TirarMascara(object sender, EventArgs e)
-        //{
-        //    TextBox txt = (TextBox)sender;
-        //    txt.Text = txt.Text.Replace("R$", "").Trim();
-        //}
         
         //Função para mudar o texto para maiusculo
         private void EscreveMaiusculo(object sender, EventArgs e)
@@ -101,7 +55,7 @@ namespace ProjetoVendaWF
             txt.CharacterCasing = CharacterCasing.Upper;
         }
 
-        //Função para somente permitir números e virgula
+        //Função para permitir somente números e virgula
         private void ApenasValorNumerico(object sender, KeyPressEventArgs e)
         {
             TextBox txt = (TextBox)sender;
@@ -117,16 +71,19 @@ namespace ProjetoVendaWF
                 }
             }
         }
-        //Aplica todas as funções aos respectivos eventos
+        //Aplica as funções aos respectivos eventos
         private void AplicarEventosNumero(TextBox txt)
         {
-            //txt.Enter += TirarMascara;
-            //txt.Leave += RetornarMascara;
             txt.KeyPress += ApenasValorNumerico;
         }
         private void AplicarEventosTexto(TextBox txt)
         {
             txt.TextChanged += EscreveMaiusculo;
+        }
+
+        private void frmCadProdutos_Load(object sender, EventArgs e)
+        {
+            
         }
     }
 }

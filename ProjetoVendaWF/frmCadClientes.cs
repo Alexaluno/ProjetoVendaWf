@@ -22,13 +22,9 @@ namespace ProjetoVendaWF
 
         private void btnCadastrar_Click(object sender, EventArgs e)
         {
-            var cNome = string.Empty;
-            var cCPF = string.Empty;
-            var cEndereco = string.Empty;
-
-            cNome = txtNome.Text;
-            cCPF = txtCPF.Text;
-            cEndereco = txtEndereco.Text;
+            var cNome = txtNome.Text;
+            var cCPF = txtCPF.Text;
+            var cEndereco = txtEndereco.Text;
 
             var cInfo = new Cliente(cNome, cCPF, cEndereco);
             retornoClienteRepositorio.Add(cInfo);

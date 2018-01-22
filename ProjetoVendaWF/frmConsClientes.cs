@@ -40,14 +40,8 @@ namespace ProjetoVendaWF
         private void dgClientes_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             indexRow = e.RowIndex; // recebe o índice da linha selecionada no datagrid
-            if (indexRow < 0)
+            if (indexRow >= 0)
             {
-                // se estiver vazio o datagrid, não faz nada
-                // não faz nada
-            }
-            else
-            {
-                // se tiver dados no datagrid, prenche o textbox e o combobox com as informações dos indices definidos da linha selecionada
                 try
                 {
                     DataGridViewRow row = dgClientes.Rows[indexRow];
@@ -58,7 +52,24 @@ namespace ProjetoVendaWF
                 {
                     // Não faz nada
                 }
+
+                // se estiver vazio o datagrid, não faz nada
+                // não faz nada
             }
+            //else
+            //{
+                // se tiver dados no datagrid, prenche o textbox e o combobox com as informações dos indices definidos da linha selecionada
+                //try
+                //{
+                //    DataGridViewRow row = dgClientes.Rows[indexRow];
+                //    txtNome.Text = row.Cells[0].Value.ToString();
+                //    txtEndereco.Text = row.Cells[2].Value.ToString();
+                //}
+                //catch (IndexOutOfRangeException)
+                //{
+                //    // Não faz nada
+                //}
+            //}
         }
 
         private void frmConsClientes_Shown(object sender, EventArgs e)
@@ -66,7 +77,10 @@ namespace ProjetoVendaWF
             listaClientes = frmCadClientes.retornoClienteRepositorio;
             dgClientes.DataSource = null;
             dgClientes.DataSource = listaClientes;
-            dgClientes.Columns[3].Visible = false;
+            if (dgClientes.Rows.Count >= 0)
+            {
+                dgClientes.Columns[3].Visible = false;
+            }
         }
 
         private void btnConsulta_Click(object sender, EventArgs e)
@@ -79,10 +93,13 @@ namespace ProjetoVendaWF
         {
             dgClientes.DataSource = null;
             dgClientes.DataSource = listaClientes;
-            dgClientes.Columns[3].Visible = false;
-            
-            lblNome.Text = Location.X.ToString();
-            lblEndereco.Text = Location.Y.ToString();
+            if (dgClientes.Rows.Count >= 0)
+            {
+                dgClientes.Columns[3].Visible = false;
+            }
+
+            //lblNome.Text = Location.X.ToString();
+            //lblEndereco.Text = Location.Y.ToString();
         }
     }
 }

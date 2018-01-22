@@ -92,8 +92,7 @@ namespace ProjetoVendaWF
 
         private void frmPrincipal_Load(object sender, EventArgs e)
         {
-            //var vendaRepositorio = new Util.Entidades.Vendas.Repositorio.VendaRepositorio();
-            //var retornoVendaRepositorio = vendaRepositorio.Vendas;
+
         }
 
         private void clientesToolStripMenuItem1_Click(object sender, EventArgs e)
@@ -175,26 +174,8 @@ namespace ProjetoVendaWF
 
         private void sobreToolStripMenuItem1_Click(object sender, EventArgs e)
         {
-            //bool open = false;
-            //foreach (Form frm in this.MdiChildren)
-            //{
-            //    if (frm is frmSobre)
-            //    {
-            //        frm.BringToFront();
-            //        frm.WindowState = FormWindowState.Normal;
-            //        open = true;
-            //    }
-            //}
-            //if (!open)
-            //{
-                Form frmSobre = new frmSobre();
-                //frmSobre.MdiParent = this;
-                //frmSobre.StartPosition = FormStartPosition.Manual;
-                //int x = (this.Width - frmSobre.Width) / 2;
-                //int y = (this.Height - frmSobre.Height) / 4;
-                //frmSobre.Location = new Point(x, y);
-                frmSobre.ShowDialog();
-            //}
+            Form frmSobre = new frmSobre();
+            frmSobre.ShowDialog();
         }
 
         private void xToolStripMenuItem_Click(object sender, EventArgs e)

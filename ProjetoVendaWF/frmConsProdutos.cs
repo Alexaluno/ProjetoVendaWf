@@ -3,13 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Windows.Forms;
 using Util.Entidades.Produtos;
+using Util.Entidades.Produtos.Repositorio;
 
 namespace ProjetoVendaWF
 {
     public partial class frmConsProdutos : Form
     {
-
-        private List<Produto> listaProdutos;
 
         public frmConsProdutos()
         {
@@ -21,35 +20,32 @@ namespace ProjetoVendaWF
 
         private void frmConsProdutos_Shown(object sender, EventArgs e)
         {
-            listaProdutos = frmCadProdutos.retornoProdutoRepositorio;
+            //Preenche o grid com os dados armazenados em ProdutoRepositorio
             dgProdutos.DataSource = null;
-            dgProdutos.DataSource = listaProdutos;
+            dgProdutos.DataSource = ProdutoRepositorio.ObterTodos();
             dgProdutos.Columns[2].Visible = false;
+            
         }
 
         private void dgProdutos_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            // recebe o índice da linha selecionada no datagrid
+            //Recebe o índice da linha selecionada no datagrid
             indexRow = e.RowIndex;
-            if (indexRow < 0)
+            if (indexRow >= 0)
             {
-                // se estiver vazio o datagrid, não faz nada
-                // não faz nada
-            }
-            else
-            {
-                // se tiver dados no datagrid, prenche o textbox e o combobox com as informações dos indices definidos da linha selecionada
                 try
                 {
-                    DataGridViewRow row = dgProdutos.Rows[indexRow];
-                    txtDescprod.Text = row.Cells[0].Value.ToString();
-                    txtValprod.Text = row.Cells[1].Value.ToString();
+                    //Passa os valores do grid indicados no [indice] para os campos do form
+                    //DataGridViewRow row = dgProdutos.Rows[indexRow];
+                    //txtDescprod.Text = row.Cells[0].Value.ToString();
+                    //txtValprod.Text = row.Cells[1].Value.ToString();
+                    txtDescprod.Text = dgProdutos.CurrentRow.Cells[0].Value.ToString();
+                    txtValprod.Text = dgProdutos.CurrentRow.Cells[1].Value.ToString();
                 }
                 catch (IndexOutOfRangeException)
                 {
                     // Não faz nada
                 }
-
             }
         }
 
@@ -72,16 +68,19 @@ namespace ProjetoVendaWF
         private void btnDeletar_Click(object sender, EventArgs e)
         {
             if (dgProdutos.CurrentRow != null)
-            {   //remove o usuario selecionado no grid do list
-                listaProdutos.RemoveAt(dgProdutos.CurrentRow.Index);
-                dgProdutos.DataSource = listaProdutos.ToList();
+            {
+                //remove o usuario selecionado no grid do Repositorio Produtos
+                //var indicedalinha = indexRow;
+                var idProduto = Guid.Parse(dgProdutos.Rows[indexRow].Cells[2].Value.ToString());
+                ProdutoRepositorio.Remover(idProduto);
+                //dgProdutos.DataSource = ProdutoRepositorio.ObterTodos();
+                }
             }
-        }
-
+    
         private void timerProdutos_Tick(object sender, EventArgs e)
         {
             dgProdutos.DataSource = null;
-            dgProdutos.DataSource = listaProdutos;
+            dgProdutos.DataSource = ProdutoRepositorio.ObterTodos();
             dgProdutos.Columns[2].Visible = false;
         }
 

@@ -35,3 +35,4 @@ C:\Users\DeRodrigo\OneDrive\Programação\ProjetoVendaWF\ProjetoVendaWF\obj\Debu
 C:\Users\Rodrigo\OneDrive\Programação\ProjetoVendaWF\ProjetoVendaWF\obj\Debug\ProjetoVendaWF.frmConsProdutos.resources
 C:\Users\Rodrigo\OneDrive\Programação\ProjetoVendaWF\ProjetoVendaWF\obj\Debug\ProjetoVendaWF.frmConsUsuarios.resources
 C:\Users\DeRodrigo\OneDrive\Programação\ProjetoVendaWF\ProjetoVendaWF\obj\Debug\ProjetoVendaWF.frmSobre.resources
+C:\Users\Rodrigo\OneDrive\Programação\ProjetoVendaWF\ProjetoVendaWF\obj\Debug\ProjetoVendaWF.frmSobre.resources
