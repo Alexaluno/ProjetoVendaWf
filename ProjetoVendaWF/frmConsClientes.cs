@@ -17,7 +17,9 @@ namespace ProjetoVendaWF
 
         private void frmConsClientes_Load(object sender, EventArgs e)
         {
-            //dgClientes.Columns[3].Visible = false;
+            listaClientes = frmCadClientes.retornoClienteRepositorio;
+            dgClientes.DataSource = null;
+            dgClientes.DataSource = listaClientes;
         }
 
          //atualizar os dados das celulas selecionadas no datagrid
@@ -42,45 +44,15 @@ namespace ProjetoVendaWF
             indexRow = e.RowIndex; // recebe o índice da linha selecionada no datagrid
             if (indexRow >= 0)
             {
-                try
-                {
-                    DataGridViewRow row = dgClientes.Rows[indexRow];
-                    txtNome.Text = row.Cells[0].Value.ToString();
-                    txtEndereco.Text = row.Cells[2].Value.ToString();
-                }
-                catch (IndexOutOfRangeException)
-                {
-                    // Não faz nada
-                }
-
-                // se estiver vazio o datagrid, não faz nada
-                // não faz nada
+                DataGridViewRow row = dgClientes.Rows[indexRow];
+                txtNome.Text = row.Cells[0].Value.ToString();
+                txtEndereco.Text = row.Cells[2].Value.ToString();
             }
-            //else
-            //{
-                // se tiver dados no datagrid, prenche o textbox e o combobox com as informações dos indices definidos da linha selecionada
-                //try
-                //{
-                //    DataGridViewRow row = dgClientes.Rows[indexRow];
-                //    txtNome.Text = row.Cells[0].Value.ToString();
-                //    txtEndereco.Text = row.Cells[2].Value.ToString();
-                //}
-                //catch (IndexOutOfRangeException)
-                //{
-                //    // Não faz nada
-                //}
-            //}
         }
 
         private void frmConsClientes_Shown(object sender, EventArgs e)
         {
-            listaClientes = frmCadClientes.retornoClienteRepositorio;
-            dgClientes.DataSource = null;
-            dgClientes.DataSource = listaClientes;
-            if (dgClientes.Rows.Count >= 0)
-            {
-                dgClientes.Columns[3].Visible = false;
-            }
+
         }
 
         private void btnConsulta_Click(object sender, EventArgs e)
@@ -89,17 +61,12 @@ namespace ProjetoVendaWF
             dgClientes.DataSource = listaClientes;
         }
 
+        //Atualiza o grid em tempo de execução
         private void timerClientes_Tick(object sender, EventArgs e)
         {
             dgClientes.DataSource = null;
             dgClientes.DataSource = listaClientes;
-            if (dgClientes.Rows.Count >= 0)
-            {
-                dgClientes.Columns[3].Visible = false;
-            }
-
-            //lblNome.Text = Location.X.ToString();
-            //lblEndereco.Text = Location.Y.ToString();
         }
+
     }
 }

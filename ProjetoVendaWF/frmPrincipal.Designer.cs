@@ -172,7 +172,7 @@
             this.Name = "frmPrincipal";
             this.Text = "ProjetoVenda_WindowsForms";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
-            this.Load += new System.EventHandler(this.frmPrincipal_Load);
+            this.Shown += new System.EventHandler(this.frmPrincipal_Shown);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);

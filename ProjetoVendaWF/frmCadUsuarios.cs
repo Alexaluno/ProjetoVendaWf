@@ -16,11 +16,6 @@ namespace ProjetoVendaWF
         private UsuarioRepositorio usuarioRepositorio;
         public static List<Usuario> retornoUsuarioRepositorio;
 
-        private void txtUsuario_TextChanged(object sender, EventArgs e)
-        {
-            txtUsuario.CharacterCasing = CharacterCasing.Upper;
-        }
-
         private void btnCadastrar_Click(object sender, EventArgs e)
         {
             var uNome = string.Empty;
@@ -58,12 +53,12 @@ namespace ProjetoVendaWF
             var uInfo = new Usuario(uNome, uGrupo);
             retornoUsuarioRepositorio.Add(uInfo);
 
-            //string output = string.Empty;
-            //foreach (var item in retornoUsuarioRepositorio)
-            //{
-            //    output += "Nome: " + item.Nome + " | " + "Grupo: " + item.Administrador + "\n";
-            //}
-            //MessageBox.Show(output);
+            string output = string.Empty;
+            foreach (var item in retornoUsuarioRepositorio)
+            {
+                output += "Nome: " + item.Nome + " | " + "Grupo: " + item.Administrador + "\n";
+            }
+            MessageBox.Show(output);
 
             txtUsuario.Text = string.Empty;
             cbGrupo.SelectedIndex = -1;

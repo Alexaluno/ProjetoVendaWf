@@ -9,6 +9,7 @@ namespace ProjetoVendaWF
     public partial class frmConsUsuarios : Form
     {
         private List<Usuario> listaUsuarios;
+        //BindingSource bs = new BindingSource();
 
         public frmConsUsuarios()
         {
@@ -17,60 +18,29 @@ namespace ProjetoVendaWF
 
         private int indexRow;
 
-        private void frmConsUsuarios_Shown(object sender, EventArgs e)
-        {
-            listaUsuarios = frmCadUsuarios.retornoUsuarioRepositorio;
-            //dgUsuarios.DataSource = null;
-            //dgUsuarios.DataSource = listaUsuarios;
-            //dgUsuarios.Columns[2].Visible = false;
-            if (dgUsuarios.Rows.Count == 0)
-            {
-                //nao faz nada
-                dgUsuarios.DataSource = listaUsuarios;
-            }
-            else
-            {
-                dgUsuarios.DataSource = null;
-                dgUsuarios.DataSource = listaUsuarios;
-                dgUsuarios.Columns[2].Visible = false;
-            }
-        }
-
         private void dgUsuarios_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             // recebe o índice da linha selecionada no datagrid
             indexRow = e.RowIndex; 
-            if (indexRow < 0)
+            if (indexRow >= 0)
             {
-                // se estiver vazio o datagrid, não faz nada
-            }
-            else
-            {
-                // se tiver dados no datagrid, prenche o textbox e o combobox com as informações dos indices definidos da linha selecionada
-                try
-                {
-                    DataGridViewRow row = dgUsuarios.Rows[indexRow];
-                    txtNome.Text = row.Cells[0].Value.ToString();
+                //Se estiver vazio o datagrid, não faz nada
+                DataGridViewRow row = dgUsuarios.Rows[indexRow];
+                txtNome.Text = row.Cells[0].Value.ToString();
 
-                    if ((bool)row.Cells[1].Value == true)
-                    {
-                        cbGrupo.SelectedIndex = 0;
-                    }
-                    else
-                    {
-                        cbGrupo.SelectedIndex = 1;
-                    }
-                }
-                catch (IndexOutOfRangeException)
+                if ((bool)row.Cells[1].Value == true)
                 {
-                    // Não faz nada
+                    cbGrupo.SelectedIndex = 0;
                 }
-                
+                else
+                {
+                    cbGrupo.SelectedIndex = 1;
+                }
             }
         }
 
         private void btnGravar_Click(object sender, EventArgs e)
-        {
+        {   //Testa se existe usuario cadastrado
             if (dgUsuarios.Rows.Count == 0)
             {
                 MessageBox.Show("Não existem usuários cadastrados");
@@ -78,7 +48,7 @@ namespace ProjetoVendaWF
                 cbGrupo.SelectedIndex = -1;
             }
             else
-            {   // Grava as atualizações feitas direto no list
+            {   //Se existir, grava as alterações feitas no cadastro de usuario
                 DataGridViewRow newDataRow = dgUsuarios.Rows[indexRow];
                 newDataRow.Cells[0].Value = txtNome.Text.ToUpper();
                 if (cbGrupo.SelectedIndex == 0)
@@ -94,17 +64,8 @@ namespace ProjetoVendaWF
         // Atualiza o grid em tempo de execução
         private void timerUsuarios_Tick(object sender, EventArgs e)
         {
-            if (dgUsuarios.Rows.Count == 0)
-            {
-                //não faz nada
-                dgUsuarios.DataSource = listaUsuarios;
-            }
-            else
-            {
-                dgUsuarios.DataSource = null;
-                dgUsuarios.DataSource = listaUsuarios;
-                dgUsuarios.Columns[2].Visible = false;
-            }
+            dgUsuarios.DataSource = null;
+            dgUsuarios.DataSource = listaUsuarios;
         }
 
         private void btnDeletar_Click(object sender, EventArgs e)
@@ -114,6 +75,14 @@ namespace ProjetoVendaWF
                 listaUsuarios.RemoveAt(dgUsuarios.CurrentRow.Index);
                 dgUsuarios.DataSource = listaUsuarios.ToList();
             }
+        }
+
+        private void frmConsUsuarios_Load(object sender, EventArgs e)
+        {
+            //Recebe os dados do usuario vindos do form de cadastro
+            listaUsuarios = frmCadUsuarios.retornoUsuarioRepositorio;
+            dgUsuarios.DataSource = null;
+            dgUsuarios.DataSource = listaUsuarios;
         }
     }
 }

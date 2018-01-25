@@ -40,9 +40,6 @@
             this.btnDeletar = new System.Windows.Forms.Button();
             this.timerProdutos = new System.Windows.Forms.Timer(this.components);
             this.produtoBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.descricaoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.valorDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pnlProdutos.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgProdutos)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.produtoBindingSource)).BeginInit();
@@ -61,17 +58,11 @@
             // 
             this.dgProdutos.AllowUserToAddRows = false;
             this.dgProdutos.AllowUserToDeleteRows = false;
-            this.dgProdutos.AutoGenerateColumns = false;
             this.dgProdutos.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.dgProdutos.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dgProdutos.BackgroundColor = System.Drawing.SystemColors.Control;
             this.dgProdutos.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.dgProdutos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgProdutos.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.descricaoDataGridViewTextBoxColumn,
-            this.valorDataGridViewTextBoxColumn,
-            this.idDataGridViewTextBoxColumn});
-            this.dgProdutos.DataSource = this.produtoBindingSource;
             this.dgProdutos.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgProdutos.Location = new System.Drawing.Point(0, 0);
             this.dgProdutos.Name = "dgProdutos";
@@ -151,30 +142,6 @@
             // 
             this.produtoBindingSource.DataSource = typeof(Util.Entidades.Produtos.Produto);
             // 
-            // descricaoDataGridViewTextBoxColumn
-            // 
-            this.descricaoDataGridViewTextBoxColumn.DataPropertyName = "Descricao";
-            this.descricaoDataGridViewTextBoxColumn.HeaderText = "Descrição";
-            this.descricaoDataGridViewTextBoxColumn.Name = "descricaoDataGridViewTextBoxColumn";
-            this.descricaoDataGridViewTextBoxColumn.ReadOnly = true;
-            this.descricaoDataGridViewTextBoxColumn.Width = 80;
-            // 
-            // valorDataGridViewTextBoxColumn
-            // 
-            this.valorDataGridViewTextBoxColumn.DataPropertyName = "Valor";
-            this.valorDataGridViewTextBoxColumn.HeaderText = "Valor R$";
-            this.valorDataGridViewTextBoxColumn.Name = "valorDataGridViewTextBoxColumn";
-            this.valorDataGridViewTextBoxColumn.ReadOnly = true;
-            this.valorDataGridViewTextBoxColumn.Width = 73;
-            // 
-            // idDataGridViewTextBoxColumn
-            // 
-            this.idDataGridViewTextBoxColumn.DataPropertyName = "Id";
-            this.idDataGridViewTextBoxColumn.HeaderText = "Id";
-            this.idDataGridViewTextBoxColumn.Name = "idDataGridViewTextBoxColumn";
-            this.idDataGridViewTextBoxColumn.ReadOnly = true;
-            this.idDataGridViewTextBoxColumn.Width = 41;
-            // 
             // frmConsProdutos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -190,6 +157,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "frmConsProdutos";
             this.Text = "Consulta de Produtos";
+            this.Load += new System.EventHandler(this.frmConsProdutos_Shown);
             this.Shown += new System.EventHandler(this.frmConsProdutos_Shown);
             this.pnlProdutos.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgProdutos)).EndInit();
@@ -210,9 +178,6 @@
         private System.Windows.Forms.Button btnGravar;
         private System.Windows.Forms.Button btnDeletar;
         private System.Windows.Forms.Timer timerProdutos;
-        private System.Windows.Forms.DataGridViewTextBoxColumn descricaoDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn valorDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn idDataGridViewTextBoxColumn;
         private System.Windows.Forms.BindingSource produtoBindingSource;
     }
 }

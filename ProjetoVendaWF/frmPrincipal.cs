@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Drawing;
 using System.Windows.Forms;
-using Util.Entidades.Usuarios;
-using Util.Entidades.Usuarios.Repositorio;
 
 namespace ProjetoVendaWF
 {
@@ -35,11 +33,6 @@ namespace ProjetoVendaWF
                 frmCli.Location = new Point(0, 0);
                 frmCli.Show();
             }
-        }
-
-        private void sairToolStripMenuItem1_Click(object sender, EventArgs e)
-        {
-            
         }
 
         private void produtosToolStripMenuItem_Click(object sender, EventArgs e)
@@ -90,11 +83,6 @@ namespace ProjetoVendaWF
             }
         }
 
-        private void frmPrincipal_Load(object sender, EventArgs e)
-        {
-
-        }
-
         private void clientesToolStripMenuItem1_Click(object sender, EventArgs e)
         {
             bool open = false;
@@ -117,11 +105,6 @@ namespace ProjetoVendaWF
                 frmCli.Location = new Point(0, 251);
                 frmCli.Show();
             }
-        }
-
-        private void sairToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            
         }
 
         private void usuariosToolStripMenuItem1_Click(object sender, EventArgs e)
@@ -178,9 +161,9 @@ namespace ProjetoVendaWF
             frmSobre.ShowDialog();
         }
 
-        private void xToolStripMenuItem_Click(object sender, EventArgs e)
+        private void frmPrincipal_Shown(object sender, EventArgs e)
         {
-            
+            //var retornoProdutoRepositorio = new List<Produto>();
         }
     }
 }

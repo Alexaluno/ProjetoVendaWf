@@ -1,7 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Threading;
 using System.Windows.Forms;
 using Util.Entidades.Clientes;
 using Util.Entidades.Clientes.Repositorio;
@@ -29,13 +27,6 @@ namespace ProjetoVendaWF
             var cInfo = new Cliente(cNome, cCPF, cEndereco);
             retornoClienteRepositorio.Add(cInfo);
 
-            //string output = string.Empty;
-            //foreach (var item in retornoClienteRepositorio)
-            //{
-            //    output += "Nome: " + item.Nome + " | " + "CPF: " + item.Cpf + " | " + "Cidade: " + item.Endereco + "\n";
-            //}
-            //MessageBox.Show(output);
-
             txtNome.Text = String.Empty;
             txtCPF.Text = String.Empty;
             txtEndereco.Text = String.Empty;
@@ -59,16 +50,6 @@ namespace ProjetoVendaWF
             {
                 this.SelectNextControl(this.ActiveControl, !e.Shift, true, true, true);
             }
-        }
-
-        private void txtNome_TextChanged(object sender, EventArgs e)
-        {
-            txtNome.CharacterCasing = CharacterCasing.Upper;
-        }
-
-        private void txtEndereco_TextChanged(object sender, EventArgs e)
-        {
-            txtEndereco.CharacterCasing = CharacterCasing.Upper;
         }
 
         private void ApenasValorNumerico(object sender, KeyPressEventArgs e)

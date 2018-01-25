@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmCadUsuarios));
             this.panelCadUsu = new System.Windows.Forms.Panel();
             this.cbGrupo = new System.Windows.Forms.ComboBox();
@@ -36,7 +37,9 @@
             this.labelUsu1 = new System.Windows.Forms.Label();
             this.btnCadastrar = new System.Windows.Forms.Button();
             this.btnCancelar = new System.Windows.Forms.Button();
+            this.usuarioBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.panelCadUsu.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.usuarioBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // panelCadUsu
@@ -53,12 +56,13 @@
             // 
             // cbGrupo
             // 
+            this.cbGrupo.DataBindings.Add(new System.Windows.Forms.Binding("SelectedValue", this.usuarioBindingSource, "Administrador", true));
             this.cbGrupo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbGrupo.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbGrupo.FormattingEnabled = true;
             this.cbGrupo.Items.AddRange(new object[] {
             "ADMINISTRADOR",
-            "USUÁRIO"});
+            "USUARIO"});
             this.cbGrupo.Location = new System.Drawing.Point(109, 42);
             this.cbGrupo.Name = "cbGrupo";
             this.cbGrupo.Size = new System.Drawing.Size(175, 21);
@@ -77,12 +81,12 @@
             // 
             // txtUsuario
             // 
+            this.txtUsuario.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtUsuario.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtUsuario.Location = new System.Drawing.Point(109, 13);
             this.txtUsuario.Name = "txtUsuario";
             this.txtUsuario.Size = new System.Drawing.Size(295, 20);
             this.txtUsuario.TabIndex = 1;
-            this.txtUsuario.TextChanged += new System.EventHandler(this.txtUsuario_TextChanged);
             // 
             // labelUsu1
             // 
@@ -119,6 +123,10 @@
             this.btnCancelar.UseVisualStyleBackColor = true;
             this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
+            // usuarioBindingSource
+            // 
+            this.usuarioBindingSource.DataSource = typeof(Util.Entidades.Usuarios.Usuario);
+            // 
             // frmCadUsuarios
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -136,6 +144,7 @@
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.frmCadUsuarios_KeyDown);
             this.panelCadUsu.ResumeLayout(false);
             this.panelCadUsu.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.usuarioBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -149,5 +158,6 @@
         private System.Windows.Forms.Button btnCadastrar;
         private System.Windows.Forms.Button btnCancelar;
         private System.Windows.Forms.ComboBox cbGrupo;
+        private System.Windows.Forms.BindingSource usuarioBindingSource;
     }
 }

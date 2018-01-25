@@ -13,7 +13,6 @@ namespace ProjetoVendaWF
         {
             InitializeComponent();
 
-            AplicarEventosTexto(txtDescProd);
             AplicarEventosNumero(txtValprod);
         }
 
@@ -21,11 +20,18 @@ namespace ProjetoVendaWF
         {
             var pDesc = txtDescProd.Text;
             var pValor = txtValprod.Text;
-            
+
             //Grava os valores dentro da Classe Produtos
             var pinfo = new Produto(pDesc, decimal.Parse(pValor));
             ProdutoRepositorio.Adicionar(pinfo);
             MessageBox.Show(ProdutoRepositorio.mensagem());
+
+            string output = string.Empty;
+            foreach (var item in ProdutoRepositorio.ObterTodos())
+            {
+                output += "Nome: " + item.Descricao + " | " + "Valor: R$" + item.Valor + "\n";
+            }
+            MessageBox.Show(output);
 
             //Limpa os campos e seta o foco no 1º campo do form
             txtDescProd.Text = string.Empty;
@@ -46,13 +52,6 @@ namespace ProjetoVendaWF
             {
                 this.SelectNextControl(this.ActiveControl, !e.Shift, true, true, true);
             }
-        }
-        
-        //Função para mudar o texto para maiusculo
-        private void EscreveMaiusculo(object sender, EventArgs e)
-        {
-            TextBox txt = (TextBox)sender;
-            txt.CharacterCasing = CharacterCasing.Upper;
         }
 
         //Função para permitir somente números e virgula
@@ -76,14 +75,15 @@ namespace ProjetoVendaWF
         {
             txt.KeyPress += ApenasValorNumerico;
         }
-        private void AplicarEventosTexto(TextBox txt)
-        {
-            txt.TextChanged += EscreveMaiusculo;
-        }
 
         private void frmCadProdutos_Load(object sender, EventArgs e)
         {
             
+        }
+
+        private void frmCadProdutos_Shown(object sender, EventArgs e)
+        {
+         
         }
     }
 }

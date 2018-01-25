@@ -132,7 +132,9 @@
     <EmbeddedResource Include="frmCadUsuarios.resx">
       <DependentUpon>frmCadUsuarios.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="Properties\DataSources\Util.Entidades.Clientes.Cliente.datasource" />
     <None Include="Properties\DataSources\Util.Entidades.Produtos.Produto.datasource" />
+    <None Include="Properties\DataSources\Util.Entidades.Usuarios.Usuario.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

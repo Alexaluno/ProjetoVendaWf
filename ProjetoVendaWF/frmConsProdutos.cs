@@ -1,8 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
 using System.Windows.Forms;
-using Util.Entidades.Produtos;
 using Util.Entidades.Produtos.Repositorio;
 
 namespace ProjetoVendaWF
@@ -24,7 +22,6 @@ namespace ProjetoVendaWF
             dgProdutos.DataSource = null;
             dgProdutos.DataSource = ProdutoRepositorio.ObterTodos();
             dgProdutos.Columns[2].Visible = false;
-            
         }
 
         private void dgProdutos_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -82,6 +79,8 @@ namespace ProjetoVendaWF
             dgProdutos.DataSource = null;
             dgProdutos.DataSource = ProdutoRepositorio.ObterTodos();
             dgProdutos.Columns[2].Visible = false;
+            //bs.DataSource = ProdutoRepositorio.ObterTodos();
+            //dgProdutos.DataSource = bs;
         }
 
         private void ApenasValorNumerico(object sender, KeyPressEventArgs e)
@@ -104,6 +103,5 @@ namespace ProjetoVendaWF
         {
             txt.KeyPress += ApenasValorNumerico;
         }
-
     }
 }

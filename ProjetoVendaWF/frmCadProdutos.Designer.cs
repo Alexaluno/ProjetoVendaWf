@@ -61,6 +61,7 @@
             // 
             // txtDescProd
             // 
+            this.txtDescProd.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtDescProd.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtDescProd.Location = new System.Drawing.Point(134, 12);
             this.txtDescProd.Name = "txtDescProd";
@@ -123,7 +124,6 @@
             this.KeyPreview = true;
             this.Name = "frmCadProdutos";
             this.Text = "Cadastro de Produtos";
-            this.Load += new System.EventHandler(this.frmCadProdutos_Load);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.frmCadProdutos_KeyDown);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
