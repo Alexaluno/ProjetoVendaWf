@@ -9,6 +9,7 @@ namespace ProjetoVendaWF
 {
     public partial class frmCadProdutos : Form
     {
+        
         public frmCadProdutos()
         {
             InitializeComponent();
@@ -22,21 +23,37 @@ namespace ProjetoVendaWF
             var pValor = txtValprod.Text;
 
             //Grava os valores dentro da Classe Produtos
-            var pinfo = new Produto(pDesc, decimal.Parse(pValor));
-            ProdutoRepositorio.Adicionar(pinfo);
-            MessageBox.Show(ProdutoRepositorio.mensagem());
-
-            string output = string.Empty;
-            foreach (var item in ProdutoRepositorio.ObterTodos())
+            if (txtDescProd.Text != "" && txtValprod.Text != "")
             {
-                output += "Nome: " + item.Descricao + " | " + "Valor: R$" + item.Valor + "\n";
+                var pinfo = new Produto(pDesc, decimal.Parse(pValor));
+                ProdutoRepositorio.Adicionar(pinfo);
+                MessageBox.Show(ProdutoRepositorio.mensagem());
+
+                txtDescProd.Text = string.Empty;
+                txtValprod.Text = string.Empty;
+                txtDescProd.Focus();
             }
-            MessageBox.Show(output);
+            else
+            {
+                MessageBox.Show("Todos os campos devem ser preenchidos !", "Cadastro de Produtos", MessageBoxButtons.OKCancel, MessageBoxIcon.Hand);
+                if (pDesc == "")
+                {
+                    txtDescProd.Focus();
+                }
+                else
+                {
+                    txtValprod.Focus();
+                }
+            }
+
+            //string output = string.Empty;
+            //foreach (var item in ProdutoRepositorio.ObterTodos())
+            //{
+            //    output += "Nome: " + item.Descricao + " | " + "Valor: R$" + item.Valor + "\n";
+            //}
+            //MessageBox.Show(output);
 
             //Limpa os campos e seta o foco no 1º campo do form
-            txtDescProd.Text = string.Empty;
-            txtValprod.Text = string.Empty;
-            txtDescProd.Focus();
         }
 
         private void btnCancelar_Click(object sender, EventArgs e)
@@ -76,14 +93,5 @@ namespace ProjetoVendaWF
             txt.KeyPress += ApenasValorNumerico;
         }
 
-        private void frmCadProdutos_Load(object sender, EventArgs e)
-        {
-            
-        }
-
-        private void frmCadProdutos_Shown(object sender, EventArgs e)
-        {
-         
-        }
     }
 }

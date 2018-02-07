@@ -2,12 +2,13 @@
 using System.Collections.Generic;
 using System.Windows.Forms;
 using Util.Entidades.Clientes;
+using Util.Entidades.Clientes.Repositorio;
 
 namespace ProjetoVendaWF
 {
     public partial class frmConsClientes : Form
     {
-        private List<Cliente> listaClientes;
+        //private List<Cliente> listaClientes;
         public frmConsClientes()
         {
             InitializeComponent();
@@ -17,9 +18,8 @@ namespace ProjetoVendaWF
 
         private void frmConsClientes_Load(object sender, EventArgs e)
         {
-            listaClientes = frmCadClientes.retornoClienteRepositorio;
             dgClientes.DataSource = null;
-            dgClientes.DataSource = listaClientes;
+            dgClientes.DataSource = ClienteRepositorio.ObterTodos();
         }
 
          //atualizar os dados das celulas selecionadas no datagrid
@@ -33,9 +33,16 @@ namespace ProjetoVendaWF
             }
             else
             {
-                DataGridViewRow newDataRow = dgClientes.Rows[indexRow];
-                newDataRow.Cells[0].Value = txtNome.Text.ToUpper();
-                newDataRow.Cells[2].Value = txtEndereco.Text.ToUpper();
+                if (txtNome.Text != "")
+                {
+                    DataGridViewRow newDataRow = dgClientes.Rows[indexRow];
+                    newDataRow.Cells[0].Value = txtNome.Text.ToUpper();
+                    newDataRow.Cells[2].Value = txtEndereco.Text.ToUpper();
+                }
+                else
+                {
+                    MessageBox.Show("Selecione um cliente para atualizar");
+                }
             }
         }
 
@@ -44,29 +51,26 @@ namespace ProjetoVendaWF
             indexRow = e.RowIndex; // recebe o índice da linha selecionada no datagrid
             if (indexRow >= 0)
             {
-                DataGridViewRow row = dgClientes.Rows[indexRow];
-                txtNome.Text = row.Cells[0].Value.ToString();
-                txtEndereco.Text = row.Cells[2].Value.ToString();
+                //DataGridViewRow row = dgClientes.Rows[indexRow];
+                txtNome.Text = dgClientes.CurrentRow.Cells[0].Value.ToString();
+                txtEndereco.Text = dgClientes.CurrentRow.Cells[2].Value.ToString();
             }
         }
 
-        private void frmConsClientes_Shown(object sender, EventArgs e)
+        private void btnDeletar_Click(object sender, EventArgs e)
         {
-
-        }
-
-        private void btnConsulta_Click(object sender, EventArgs e)
-        {
-            dgClientes.DataSource = null;
-            dgClientes.DataSource = listaClientes;
+            if (dgClientes.CurrentRow != null)
+            {
+                var idCliente = Guid.Parse(dgClientes.Rows[indexRow].Cells[3].Value.ToString());
+                ClienteRepositorio.Remover(idCliente);
+            }
         }
 
         //Atualiza o grid em tempo de execução
         private void timerClientes_Tick(object sender, EventArgs e)
         {
             dgClientes.DataSource = null;
-            dgClientes.DataSource = listaClientes;
+            dgClientes.DataSource = ClienteRepositorio.ObterTodos();
         }
-
     }
 }

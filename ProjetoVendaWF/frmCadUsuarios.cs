@@ -13,9 +13,6 @@ namespace ProjetoVendaWF
             InitializeComponent();
         }
 
-        private UsuarioRepositorio usuarioRepositorio;
-        public static List<Usuario> retornoUsuarioRepositorio;
-
         private void btnCadastrar_Click(object sender, EventArgs e)
         {
             var uNome = string.Empty;
@@ -51,12 +48,14 @@ namespace ProjetoVendaWF
             }
 
             var uInfo = new Usuario(uNome, uGrupo);
-            retornoUsuarioRepositorio.Add(uInfo);
+            UsuarioRepositorio.Adicionar(uInfo);
+            MessageBox.Show(UsuarioRepositorio.mensagem());
+
 
             string output = string.Empty;
-            foreach (var item in retornoUsuarioRepositorio)
+            foreach (var item in UsuarioRepositorio.ObterTodos())
             {
-                output += "Nome: " + item.Nome + " | " + "Grupo: " + item.Administrador + "\n";
+                output += "Nome: " + item.Nome + " \t " + "Grupo: " + item.Administrador + "\n";
             }
             MessageBox.Show(output);
 
@@ -76,12 +75,6 @@ namespace ProjetoVendaWF
             {
                 this.SelectNextControl(this.ActiveControl, !e.Shift, true, true, true);
             }
-        }
-
-        private void frmCadUsuarios_Load(object sender, EventArgs e)
-        {
-            usuarioRepositorio = new UsuarioRepositorio();
-            retornoUsuarioRepositorio = usuarioRepositorio.Usuarios;
         }
 
         private void cbGrupo_Enter(object sender, EventArgs e)

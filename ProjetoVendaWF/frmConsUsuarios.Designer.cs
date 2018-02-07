@@ -61,6 +61,8 @@
             // 
             this.dgUsuarios.AllowUserToAddRows = false;
             this.dgUsuarios.AllowUserToDeleteRows = false;
+            this.dgUsuarios.AllowUserToResizeColumns = false;
+            this.dgUsuarios.AllowUserToResizeRows = false;
             this.dgUsuarios.AutoGenerateColumns = false;
             this.dgUsuarios.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.dgUsuarios.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
@@ -149,7 +151,7 @@
             this.btnGravar.Name = "btnGravar";
             this.btnGravar.Size = new System.Drawing.Size(87, 23);
             this.btnGravar.TabIndex = 4;
-            this.btnGravar.Text = "Gravar";
+            this.btnGravar.Text = "Atualizar";
             this.btnGravar.UseVisualStyleBackColor = true;
             this.btnGravar.Click += new System.EventHandler(this.btnGravar_Click);
             // 
@@ -157,9 +159,9 @@
             // 
             this.txtNome.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtNome.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtNome.Location = new System.Drawing.Point(135, 330);
+            this.txtNome.Location = new System.Drawing.Point(120, 330);
             this.txtNome.Name = "txtNome";
-            this.txtNome.Size = new System.Drawing.Size(415, 20);
+            this.txtNome.Size = new System.Drawing.Size(429, 20);
             this.txtNome.TabIndex = 5;
             // 
             // cbGrupo
@@ -169,9 +171,9 @@
             this.cbGrupo.Items.AddRange(new object[] {
             "ADMINISTRADOR",
             "USUARIO"});
-            this.cbGrupo.Location = new System.Drawing.Point(135, 356);
+            this.cbGrupo.Location = new System.Drawing.Point(120, 356);
             this.cbGrupo.Name = "cbGrupo";
-            this.cbGrupo.Size = new System.Drawing.Size(174, 21);
+            this.cbGrupo.Size = new System.Drawing.Size(428, 21);
             this.cbGrupo.TabIndex = 6;
             // 
             // timerUsuarios

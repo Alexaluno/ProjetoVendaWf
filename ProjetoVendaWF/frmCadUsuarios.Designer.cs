@@ -140,7 +140,6 @@
             this.KeyPreview = true;
             this.Name = "frmCadUsuarios";
             this.Text = "Cadastro de Usuários";
-            this.Load += new System.EventHandler(this.frmCadUsuarios_Load);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.frmCadUsuarios_KeyDown);
             this.panelCadUsu.ResumeLayout(false);
             this.panelCadUsu.PerformLayout();

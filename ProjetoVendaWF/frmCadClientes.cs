@@ -15,9 +15,6 @@ namespace ProjetoVendaWF
             AplicarEventosNumeros(txtCPF);
         }
 
-        private ClienteRepositorio clienteRepositorio;
-        public static List<Cliente> retornoClienteRepositorio;
-
         private void btnCadastrar_Click(object sender, EventArgs e)
         {
             var cNome = txtNome.Text;
@@ -25,18 +22,13 @@ namespace ProjetoVendaWF
             var cEndereco = txtEndereco.Text;
 
             var cInfo = new Cliente(cNome, cCPF, cEndereco);
-            retornoClienteRepositorio.Add(cInfo);
+            ClienteRepositorio.Adicionar(cInfo);
+            MessageBox.Show(ClienteRepositorio.mensagem());
 
             txtNome.Text = String.Empty;
             txtCPF.Text = String.Empty;
             txtEndereco.Text = String.Empty;
             txtNome.Focus();
-        }
-
-        private void frmClientes_Load(object sender, EventArgs e)
-        {
-             clienteRepositorio = new ClienteRepositorio();
-             retornoClienteRepositorio = clienteRepositorio.Clientes;
         }
 
         private void btnCancelar_Click(object sender, EventArgs e)

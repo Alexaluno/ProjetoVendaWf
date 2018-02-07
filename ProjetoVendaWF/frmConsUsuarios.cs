@@ -3,13 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Windows.Forms;
 using Util.Entidades.Usuarios;
+using Util.Entidades.Usuarios.Repositorio;
 
 namespace ProjetoVendaWF
 {
     public partial class frmConsUsuarios : Form
     {
-        private List<Usuario> listaUsuarios;
-        //BindingSource bs = new BindingSource();
 
         public frmConsUsuarios()
         {
@@ -24,11 +23,9 @@ namespace ProjetoVendaWF
             indexRow = e.RowIndex; 
             if (indexRow >= 0)
             {
-                //Se estiver vazio o datagrid, não faz nada
-                DataGridViewRow row = dgUsuarios.Rows[indexRow];
-                txtNome.Text = row.Cells[0].Value.ToString();
+                txtNome.Text = dgUsuarios.CurrentRow.Cells[0].Value.ToString();
 
-                if ((bool)row.Cells[1].Value == true)
+                if ((bool)dgUsuarios.CurrentRow.Cells[1].Value == true)
                 {
                     cbGrupo.SelectedIndex = 0;
                 }
@@ -65,24 +62,23 @@ namespace ProjetoVendaWF
         private void timerUsuarios_Tick(object sender, EventArgs e)
         {
             dgUsuarios.DataSource = null;
-            dgUsuarios.DataSource = listaUsuarios;
+            dgUsuarios.DataSource = UsuarioRepositorio.ObterTodos();
         }
 
         private void btnDeletar_Click(object sender, EventArgs e)
         {
             if (dgUsuarios.CurrentRow != null)
             {   //remove o usuario selecionado no grid do list
-                listaUsuarios.RemoveAt(dgUsuarios.CurrentRow.Index);
-                dgUsuarios.DataSource = listaUsuarios.ToList();
+                var idUsuario = Guid.Parse(dgUsuarios.Rows[indexRow].Cells[2].Value.ToString());
+                UsuarioRepositorio.Remover(idUsuario);
             }
         }
 
         private void frmConsUsuarios_Load(object sender, EventArgs e)
         {
             //Recebe os dados do usuario vindos do form de cadastro
-            listaUsuarios = frmCadUsuarios.retornoUsuarioRepositorio;
             dgUsuarios.DataSource = null;
-            dgUsuarios.DataSource = listaUsuarios;
+            dgUsuarios.DataSource = UsuarioRepositorio.ObterTodos();
         }
     }
 }

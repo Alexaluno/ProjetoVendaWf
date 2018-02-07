@@ -150,7 +150,6 @@
             this.MaximizeBox = false;
             this.Name = "frmCadClientes";
             this.Text = "Cadastro de Clientes";
-            this.Load += new System.EventHandler(this.frmClientes_Load);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.frmCadClientes_KeyDown);
             this.pnlCliente.ResumeLayout(false);
             this.pnlCliente.PerformLayout();

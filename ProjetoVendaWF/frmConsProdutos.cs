@@ -21,28 +21,21 @@ namespace ProjetoVendaWF
             //Preenche o grid com os dados armazenados em ProdutoRepositorio
             dgProdutos.DataSource = null;
             dgProdutos.DataSource = ProdutoRepositorio.ObterTodos();
-            dgProdutos.Columns[2].Visible = false;
         }
 
         private void dgProdutos_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             //Recebe o índice da linha selecionada no datagrid
-            indexRow = e.RowIndex;
-            if (indexRow >= 0)
+            
+            if (e.RowIndex >= 0)
             {
-                try
-                {
-                    //Passa os valores do grid indicados no [indice] para os campos do form
-                    //DataGridViewRow row = dgProdutos.Rows[indexRow];
-                    //txtDescprod.Text = row.Cells[0].Value.ToString();
-                    //txtValprod.Text = row.Cells[1].Value.ToString();
-                    txtDescprod.Text = dgProdutos.CurrentRow.Cells[0].Value.ToString();
-                    txtValprod.Text = dgProdutos.CurrentRow.Cells[1].Value.ToString();
-                }
-                catch (IndexOutOfRangeException)
-                {
-                    // Não faz nada
-                }
+                indexRow = e.RowIndex;
+                //Passa os valores do grid indicados no [indice] para os campos do form
+                //DataGridViewRow row = dgProdutos.Rows[indexRow];
+                //txtDescprod.Text = row.Cells[0].Value.ToString();
+                //txtValprod.Text = row.Cells[1].Value.ToString();
+                txtDescprod.Text = dgProdutos.CurrentRow.Cells[0].Value.ToString();
+                txtValprod.Text = dgProdutos.CurrentRow.Cells[1].Value.ToString();
             }
         }
 
@@ -67,10 +60,8 @@ namespace ProjetoVendaWF
             if (dgProdutos.CurrentRow != null)
             {
                 //remove o usuario selecionado no grid do Repositorio Produtos
-                //var indicedalinha = indexRow;
                 var idProduto = Guid.Parse(dgProdutos.Rows[indexRow].Cells[2].Value.ToString());
                 ProdutoRepositorio.Remover(idProduto);
-                //dgProdutos.DataSource = ProdutoRepositorio.ObterTodos();
                 }
             }
     
@@ -78,7 +69,6 @@ namespace ProjetoVendaWF
         {
             dgProdutos.DataSource = null;
             dgProdutos.DataSource = ProdutoRepositorio.ObterTodos();
-            dgProdutos.Columns[2].Visible = false;
             //bs.DataSource = ProdutoRepositorio.ObterTodos();
             //dgProdutos.DataSource = bs;
         }

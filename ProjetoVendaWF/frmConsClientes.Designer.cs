@@ -37,7 +37,7 @@
             this.enderecoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clienteBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.btnConsulta = new System.Windows.Forms.Button();
+            this.btnDeletar = new System.Windows.Forms.Button();
             this.btnAtualiza = new System.Windows.Forms.Button();
             this.txtEndereco = new System.Windows.Forms.TextBox();
             this.txtNome = new System.Windows.Forms.TextBox();
@@ -51,7 +51,7 @@
             // 
             // pnlConsultas
             // 
-            this.pnlConsultas.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pnlConsultas.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.pnlConsultas.Controls.Add(this.dgClientes);
             this.pnlConsultas.Location = new System.Drawing.Point(14, 12);
             this.pnlConsultas.Name = "pnlConsultas";
@@ -62,6 +62,8 @@
             // 
             this.dgClientes.AllowUserToAddRows = false;
             this.dgClientes.AllowUserToDeleteRows = false;
+            this.dgClientes.AllowUserToResizeColumns = false;
+            this.dgClientes.AllowUserToResizeRows = false;
             this.dgClientes.AutoGenerateColumns = false;
             this.dgClientes.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.dgClientes.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
@@ -79,7 +81,7 @@
             this.dgClientes.MultiSelect = false;
             this.dgClientes.Name = "dgClientes";
             this.dgClientes.ReadOnly = true;
-            this.dgClientes.Size = new System.Drawing.Size(628, 302);
+            this.dgClientes.Size = new System.Drawing.Size(626, 300);
             this.dgClientes.TabIndex = 2;
             this.dgClientes.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgClientes_CellClick);
             // 
@@ -119,23 +121,23 @@
             // 
             this.clienteBindingSource.DataSource = typeof(Util.Entidades.Clientes.Cliente);
             // 
-            // btnConsulta
+            // btnDeletar
             // 
-            this.btnConsulta.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnConsulta.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnConsulta.Location = new System.Drawing.Point(555, 328);
-            this.btnConsulta.Name = "btnConsulta";
-            this.btnConsulta.Size = new System.Drawing.Size(87, 23);
-            this.btnConsulta.TabIndex = 7;
-            this.btnConsulta.Text = "Consultar";
-            this.btnConsulta.UseVisualStyleBackColor = true;
-            this.btnConsulta.Click += new System.EventHandler(this.btnConsulta_Click);
+            this.btnDeletar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnDeletar.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDeletar.Location = new System.Drawing.Point(555, 354);
+            this.btnDeletar.Name = "btnDeletar";
+            this.btnDeletar.Size = new System.Drawing.Size(87, 23);
+            this.btnDeletar.TabIndex = 7;
+            this.btnDeletar.Text = "Deletar";
+            this.btnDeletar.UseVisualStyleBackColor = true;
+            this.btnDeletar.Click += new System.EventHandler(this.btnDeletar_Click);
             // 
             // btnAtualiza
             // 
             this.btnAtualiza.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnAtualiza.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAtualiza.Location = new System.Drawing.Point(555, 354);
+            this.btnAtualiza.Location = new System.Drawing.Point(555, 328);
             this.btnAtualiza.Name = "btnAtualiza";
             this.btnAtualiza.Size = new System.Drawing.Size(87, 23);
             this.btnAtualiza.TabIndex = 10;
@@ -146,17 +148,17 @@
             // txtEndereco
             // 
             this.txtEndereco.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.txtEndereco.Location = new System.Drawing.Point(135, 356);
+            this.txtEndereco.Location = new System.Drawing.Point(118, 356);
             this.txtEndereco.Name = "txtEndereco";
-            this.txtEndereco.Size = new System.Drawing.Size(415, 20);
+            this.txtEndereco.Size = new System.Drawing.Size(431, 20);
             this.txtEndereco.TabIndex = 9;
             // 
             // txtNome
             // 
             this.txtNome.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.txtNome.Location = new System.Drawing.Point(135, 330);
+            this.txtNome.Location = new System.Drawing.Point(118, 330);
             this.txtNome.Name = "txtNome";
-            this.txtNome.Size = new System.Drawing.Size(415, 20);
+            this.txtNome.Size = new System.Drawing.Size(431, 20);
             this.txtNome.TabIndex = 8;
             // 
             // lblNome
@@ -192,7 +194,7 @@
             this.ClientSize = new System.Drawing.Size(661, 387);
             this.Controls.Add(this.lblEndereco);
             this.Controls.Add(this.lblNome);
-            this.Controls.Add(this.btnConsulta);
+            this.Controls.Add(this.btnDeletar);
             this.Controls.Add(this.btnAtualiza);
             this.Controls.Add(this.txtEndereco);
             this.Controls.Add(this.txtNome);
@@ -202,7 +204,6 @@
             this.Name = "frmConsClientes";
             this.Text = "Consulta de Clientes";
             this.Load += new System.EventHandler(this.frmConsClientes_Load);
-            this.Shown += new System.EventHandler(this.frmConsClientes_Shown);
             this.Click += new System.EventHandler(this.btnAtualiza_Click);
             this.pnlConsultas.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgClientes)).EndInit();
@@ -215,7 +216,7 @@
         #endregion
         private System.Windows.Forms.Panel pnlConsultas;
         private System.Windows.Forms.DataGridView dgClientes;
-        private System.Windows.Forms.Button btnConsulta;
+        private System.Windows.Forms.Button btnDeletar;
         private System.Windows.Forms.Button btnAtualiza;
         private System.Windows.Forms.TextBox txtEndereco;
         private System.Windows.Forms.TextBox txtNome;
