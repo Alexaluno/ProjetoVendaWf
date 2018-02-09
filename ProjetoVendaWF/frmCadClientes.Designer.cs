@@ -43,50 +43,49 @@
             // 
             // pnlCliente
             // 
-            this.pnlCliente.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.pnlCliente.Controls.Add(this.txtEndereco);
             this.pnlCliente.Controls.Add(this.txtCPF);
             this.pnlCliente.Controls.Add(this.txtNome);
             this.pnlCliente.Controls.Add(this.lbEndereco);
             this.pnlCliente.Controls.Add(this.lbCPF);
             this.pnlCliente.Controls.Add(this.lbNome);
-            this.pnlCliente.Location = new System.Drawing.Point(12, 12);
+            this.pnlCliente.Location = new System.Drawing.Point(14, 12);
             this.pnlCliente.Name = "pnlCliente";
-            this.pnlCliente.Size = new System.Drawing.Size(415, 80);
+            this.pnlCliente.Size = new System.Drawing.Size(466, 80);
             this.pnlCliente.TabIndex = 0;
             // 
             // txtEndereco
             // 
             this.txtEndereco.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtEndereco.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtEndereco.Location = new System.Drawing.Point(104, 53);
+            this.txtEndereco.Location = new System.Drawing.Point(107, 53);
             this.txtEndereco.Name = "txtEndereco";
-            this.txtEndereco.Size = new System.Drawing.Size(300, 20);
+            this.txtEndereco.Size = new System.Drawing.Size(350, 20);
             this.txtEndereco.TabIndex = 5;
             // 
             // txtCPF
             // 
             this.txtCPF.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtCPF.Location = new System.Drawing.Point(104, 28);
+            this.txtCPF.Location = new System.Drawing.Point(107, 28);
             this.txtCPF.MaxLength = 11;
             this.txtCPF.Name = "txtCPF";
-            this.txtCPF.Size = new System.Drawing.Size(100, 20);
+            this.txtCPF.Size = new System.Drawing.Size(116, 20);
             this.txtCPF.TabIndex = 4;
             // 
             // txtNome
             // 
             this.txtNome.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtNome.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtNome.Location = new System.Drawing.Point(104, 3);
+            this.txtNome.Location = new System.Drawing.Point(107, 3);
             this.txtNome.Name = "txtNome";
-            this.txtNome.Size = new System.Drawing.Size(300, 20);
+            this.txtNome.Size = new System.Drawing.Size(350, 20);
             this.txtNome.TabIndex = 3;
             // 
             // lbEndereco
             // 
             this.lbEndereco.AutoSize = true;
             this.lbEndereco.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbEndereco.Location = new System.Drawing.Point(3, 55);
+            this.lbEndereco.Location = new System.Drawing.Point(10, 55);
             this.lbEndereco.Name = "lbEndereco";
             this.lbEndereco.Size = new System.Drawing.Size(98, 13);
             this.lbEndereco.TabIndex = 2;
@@ -96,7 +95,7 @@
             // 
             this.lbCPF.AutoSize = true;
             this.lbCPF.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbCPF.Location = new System.Drawing.Point(3, 30);
+            this.lbCPF.Location = new System.Drawing.Point(14, 31);
             this.lbCPF.Name = "lbCPF";
             this.lbCPF.Size = new System.Drawing.Size(95, 13);
             this.lbCPF.TabIndex = 1;
@@ -116,9 +115,9 @@
             // 
             this.btnCadastrar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnCadastrar.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCadastrar.Location = new System.Drawing.Point(113, 102);
+            this.btnCadastrar.Location = new System.Drawing.Point(126, 102);
             this.btnCadastrar.Name = "btnCadastrar";
-            this.btnCadastrar.Size = new System.Drawing.Size(75, 23);
+            this.btnCadastrar.Size = new System.Drawing.Size(87, 23);
             this.btnCadastrar.TabIndex = 1;
             this.btnCadastrar.Text = "Cadastrar";
             this.btnCadastrar.UseVisualStyleBackColor = true;
@@ -128,9 +127,9 @@
             // 
             this.btnCancelar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnCancelar.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCancelar.Location = new System.Drawing.Point(245, 102);
+            this.btnCancelar.Location = new System.Drawing.Point(280, 102);
             this.btnCancelar.Name = "btnCancelar";
-            this.btnCancelar.Size = new System.Drawing.Size(75, 23);
+            this.btnCancelar.Size = new System.Drawing.Size(87, 23);
             this.btnCancelar.TabIndex = 2;
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.UseVisualStyleBackColor = true;
@@ -138,18 +137,20 @@
             // 
             // frmCadClientes
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(439, 133);
+            this.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
+            this.ClientSize = new System.Drawing.Size(494, 133);
             this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.btnCadastrar);
             this.Controls.Add(this.pnlCliente);
+            this.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.KeyPreview = true;
-            this.Location = new System.Drawing.Point(1, 1);
             this.MaximizeBox = false;
             this.Name = "frmCadClientes";
-            this.Text = "Cadastro de Clientes";
+            this.Text = ".:: Cadastro | Clientes ::.";
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.frmCadClientes_KeyDown);
             this.pnlCliente.ResumeLayout(false);
             this.pnlCliente.PerformLayout();

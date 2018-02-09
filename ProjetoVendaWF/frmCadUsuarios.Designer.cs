@@ -32,12 +32,12 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmCadUsuarios));
             this.panelCadUsu = new System.Windows.Forms.Panel();
             this.cbGrupo = new System.Windows.Forms.ComboBox();
+            this.usuarioBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.label1 = new System.Windows.Forms.Label();
             this.txtUsuario = new System.Windows.Forms.TextBox();
             this.labelUsu1 = new System.Windows.Forms.Label();
             this.btnCadastrar = new System.Windows.Forms.Button();
             this.btnCancelar = new System.Windows.Forms.Button();
-            this.usuarioBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.panelCadUsu.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.usuarioBindingSource)).BeginInit();
             this.SuspendLayout();
@@ -49,9 +49,9 @@
             this.panelCadUsu.Controls.Add(this.label1);
             this.panelCadUsu.Controls.Add(this.txtUsuario);
             this.panelCadUsu.Controls.Add(this.labelUsu1);
-            this.panelCadUsu.Location = new System.Drawing.Point(12, 12);
+            this.panelCadUsu.Location = new System.Drawing.Point(14, 12);
             this.panelCadUsu.Name = "panelCadUsu";
-            this.panelCadUsu.Size = new System.Drawing.Size(415, 80);
+            this.panelCadUsu.Size = new System.Drawing.Size(468, 80);
             this.panelCadUsu.TabIndex = 0;
             // 
             // cbGrupo
@@ -63,11 +63,15 @@
             this.cbGrupo.Items.AddRange(new object[] {
             "ADMINISTRADOR",
             "USUARIO"});
-            this.cbGrupo.Location = new System.Drawing.Point(109, 42);
+            this.cbGrupo.Location = new System.Drawing.Point(114, 42);
             this.cbGrupo.Name = "cbGrupo";
-            this.cbGrupo.Size = new System.Drawing.Size(175, 21);
+            this.cbGrupo.Size = new System.Drawing.Size(203, 21);
             this.cbGrupo.TabIndex = 4;
             this.cbGrupo.Enter += new System.EventHandler(this.cbGrupo_Enter);
+            // 
+            // usuarioBindingSource
+            // 
+            this.usuarioBindingSource.DataSource = typeof(Util.Entidades.Usuarios.Usuario);
             // 
             // label1
             // 
@@ -83,9 +87,9 @@
             // 
             this.txtUsuario.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtUsuario.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtUsuario.Location = new System.Drawing.Point(109, 13);
+            this.txtUsuario.Location = new System.Drawing.Point(114, 13);
             this.txtUsuario.Name = "txtUsuario";
-            this.txtUsuario.Size = new System.Drawing.Size(295, 20);
+            this.txtUsuario.Size = new System.Drawing.Size(343, 20);
             this.txtUsuario.TabIndex = 1;
             // 
             // labelUsu1
@@ -103,9 +107,9 @@
             // 
             this.btnCadastrar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnCadastrar.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCadastrar.Location = new System.Drawing.Point(113, 102);
+            this.btnCadastrar.Location = new System.Drawing.Point(126, 102);
             this.btnCadastrar.Name = "btnCadastrar";
-            this.btnCadastrar.Size = new System.Drawing.Size(75, 23);
+            this.btnCadastrar.Size = new System.Drawing.Size(87, 23);
             this.btnCadastrar.TabIndex = 1;
             this.btnCadastrar.Text = "Cadastrar";
             this.btnCadastrar.UseVisualStyleBackColor = true;
@@ -115,27 +119,24 @@
             // 
             this.btnCancelar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnCancelar.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCancelar.Location = new System.Drawing.Point(245, 102);
+            this.btnCancelar.Location = new System.Drawing.Point(280, 102);
             this.btnCancelar.Name = "btnCancelar";
-            this.btnCancelar.Size = new System.Drawing.Size(75, 23);
+            this.btnCancelar.Size = new System.Drawing.Size(87, 23);
             this.btnCancelar.TabIndex = 2;
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.UseVisualStyleBackColor = true;
             this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
-            // usuarioBindingSource
-            // 
-            this.usuarioBindingSource.DataSource = typeof(Util.Entidades.Usuarios.Usuario);
-            // 
             // frmCadUsuarios
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
-            this.ClientSize = new System.Drawing.Size(439, 133);
+            this.ClientSize = new System.Drawing.Size(494, 133);
             this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.btnCadastrar);
             this.Controls.Add(this.panelCadUsu);
+            this.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.KeyPreview = true;
             this.Name = "frmCadUsuarios";

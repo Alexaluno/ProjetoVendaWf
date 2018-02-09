@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
 using System.Windows.Forms;
 using Util.Entidades.Produtos;
@@ -15,21 +14,24 @@ namespace ProjetoVendaWF
             InitializeComponent();
 
             AplicarEventosNumero(txtValprod);
+            AplicarEventosNumero(txtQuant);
         }
 
         private void btnCadProd_Click(object sender, EventArgs e)
         {
             var pDesc = txtDescProd.Text;
+            var pQuant = txtQuant.Text;
             var pValor = txtValprod.Text;
 
             //Grava os valores dentro da Classe Produtos
-            if (txtDescProd.Text != "" && txtValprod.Text != "")
+            if (txtDescProd.Text != "" && txtQuant.Text != "" && txtValprod.Text != "")
             {
-                var pinfo = new Produto(pDesc, decimal.Parse(pValor));
+                var pinfo = new Produto(pDesc, Convert.ToInt32(pQuant), decimal.Parse(pValor));
                 ProdutoRepositorio.Adicionar(pinfo);
                 MessageBox.Show(ProdutoRepositorio.mensagem());
 
                 txtDescProd.Text = string.Empty;
+                txtQuant.Text = string.Empty;
                 txtValprod.Text = string.Empty;
                 txtDescProd.Focus();
             }
@@ -40,7 +42,11 @@ namespace ProjetoVendaWF
                 {
                     txtDescProd.Focus();
                 }
-                else
+                if (pQuant == "")
+                {
+                    txtQuant.Focus();
+                }
+                if (pValor == "")
                 {
                     txtValprod.Focus();
                 }
