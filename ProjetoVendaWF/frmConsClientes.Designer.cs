@@ -215,7 +215,6 @@
 
         #endregion
         private System.Windows.Forms.Panel pnlConsultas;
-        private System.Windows.Forms.DataGridView dgClientes;
         private System.Windows.Forms.Button btnDeletar;
         private System.Windows.Forms.Button btnAtualiza;
         private System.Windows.Forms.TextBox txtEndereco;
@@ -228,5 +227,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn enderecoDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn idDataGridViewTextBoxColumn;
         private System.Windows.Forms.BindingSource clienteBindingSource;
+        public System.Windows.Forms.DataGridView dgClientes;
     }
 }

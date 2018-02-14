@@ -38,3 +38,5 @@ C:\Users\Rodrigo\OneDrive\Programação\ProjetoVendaWF\ProjetoVendaWF\obj\Debug\
 C:\Users\DeRodrigo\OneDrive\Programação\ProjetoVendaWF\ProjetoVendaWF\obj\Debug\ProjetoVendaWF.frmCadVendas.resources
 C:\Users\DeRodrigo\OneDrive\Programação\ProjetoVendaWF\ProjetoVendaWF\obj\Debug\ProjetoVendaWF.frmConsVendas.resources
 C:\Users\DeRodrigo\OneDrive\Programação\ProjetoVendaWF\ProjetoVendaWF\obj\Debug\ProjetoVendaWF.csprojResolveAssemblyReference.cache
+C:\Users\DeRodrigo\OneDrive\Programação\ProjetoVendaWF\ProjetoVendaWF\bin\Debug\MetroFramework.dll
+C:\Users\DeRodrigo\OneDrive\Programação\ProjetoVendaWF\ProjetoVendaWF\obj\Debug\ProjetoVendaWF.frmLogin.resources

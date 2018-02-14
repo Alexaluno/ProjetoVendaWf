@@ -25,6 +25,7 @@ namespace ProjetoVendaWF
         private VendaRepositorio vendaRepositorio;
         public static List<Venda> retornoVendaRepositorio;
 
+        #region Centralizar Texto na Barra de Titulo
         private void UpdateTextPosition()
         {
             Graphics g = this.CreateGraphics();
@@ -40,6 +41,7 @@ namespace ProjetoVendaWF
             }
             this.Text = tmp + this.Text.Trim();
         }
+        #endregion
 
         private void frmCadVendas_Load(object sender, EventArgs e)
         {

@@ -32,6 +32,7 @@ namespace ProjetoVendaWF
                 //int y = (this.Height - frmCli.Height) / 4;
                 //frmCli.Location = new Point(0, 0);
                 frmCli.Show();
+                frmCli.BringToFront();
             }
         }
         #endregion

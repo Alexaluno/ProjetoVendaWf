@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Windows.Forms;
 using Util.Entidades.Clientes;
 using Util.Entidades.Clientes.Repositorio;
@@ -29,7 +28,7 @@ namespace ProjetoVendaWF
             txtCPF.Text = String.Empty;
             txtEndereco.Text = String.Empty;
             txtNome.Focus();
-        }
+        }    
 
         private void btnCancelar_Click(object sender, EventArgs e)
         {
