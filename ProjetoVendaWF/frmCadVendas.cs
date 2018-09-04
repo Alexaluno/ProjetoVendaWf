@@ -1,15 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using Util.Entidades.Clientes.Repositorio;
 using Util.Entidades.Produtos.Repositorio;
-using Util.Entidades.Usuarios.Repositorio;
 using Util.Entidades.Vendas;
 using Util.Entidades.Vendas.Repositorio;
 
@@ -22,7 +15,7 @@ namespace ProjetoVendaWF
             InitializeComponent();
         }
 
-        private VendaRepositorio vendaRepositorio;
+        //private VendaRepositorio vendaRepositorio;
         public static List<Venda> retornoVendaRepositorio;
 
         #region Centralizar Texto na Barra de Titulo

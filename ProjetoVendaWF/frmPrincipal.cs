@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Drawing;
 using System.Windows.Forms;
 
 namespace ProjetoVendaWF
@@ -186,6 +187,15 @@ namespace ProjetoVendaWF
             frmSobre.ShowDialog();
         }
         #endregion
-        
+
+        private void frmPrincipal_Load(object sender, EventArgs e)
+        {
+            foreach (Control ct in this.Controls)
+            {
+                if (ct.GetType().Name == "MdiClient")
+                    ct.BackColor = Color.FromName("GradientActiveCaption");
+            }
+        }
     }
+
 }
